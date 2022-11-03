@@ -7,5 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "dependencies": {
+    "next-auth": "^4.15.0"
   }
 }
