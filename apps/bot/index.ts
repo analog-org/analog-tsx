@@ -14,7 +14,7 @@ import {
 } from "discord.js";
 import fs, { read, readdirSync } from "fs";
 import dotenv, { config } from "dotenv";
-import { regCMD } from "./src/deploy-commands";
+import { regCMD } from "../../analog-ts/src/deploy-commands";
 import { devConfig } from "./devconfig";
 import path from "node:path";
 
