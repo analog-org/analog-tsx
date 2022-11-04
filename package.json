@@ -22,7 +22,6 @@
   },
   "packageManager": "npm@8.19.2",
   "dependencies": {
-    "next": "^13.0.1",
-    "nextjs": "^0.0.3"
+    "prisma": "^4.5.0"
   }
 }
