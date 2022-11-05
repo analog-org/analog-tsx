@@ -5,6 +5,11 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
+    "dashboard#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"],
+      "env": ["DISCORD_CLIENT_ID", "DISCORD_CLIENT_SECRET"]
+    },
     "lint": {
       "outputs": []
     },
