@@ -1,8 +1,20 @@
-import NextAuth from "next-auth"
+import NextAuth from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 
-
 export const authOptions = {
+  session: {
+    jwt: true,
+  },
+  callbacks: {
+    jwt: async (token, user, account, profile) => {
+      if (user) {
+        token.profile = profile;
+        token.accessToken = account.accessToken;
+        token.refreshToken = account.refreshToken;
+      }
+      return Promise.resolve(token);;
+    },
+  },
   // Configure one or more authentication providers
   providers: [
     DiscordProvider({
@@ -13,5 +25,5 @@ export const authOptions = {
     }),
     // ...add more providers here
   ],
-}
-export default NextAuth(authOptions)
+};
+export default NextAuth(authOptions);
