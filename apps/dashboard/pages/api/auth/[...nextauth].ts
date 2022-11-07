@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 
-export default NextAuth({
+export const authOptions = {
   // Configure one or more authentication providers
   providers: [
     DiscordProvider({
@@ -15,7 +15,22 @@ export default NextAuth({
         },
       },
       profile(profile) {
-        return profile;
+        console.log(profile);
+        if (profile.avatar === null) {
+          const defaultAvatarNumber = parseInt(profile.discriminator) % 5;
+          profile.image_url = `https://cdn.discordapp.com/embed/avatars/${defaultAvatarNumber}.png`;
+        } else {
+          const format = profile.avatar.startsWith("a_") ? "gif" : "png";
+          profile.image_url = `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.${format}`;
+        }
+
+        return {
+          id: profile.id,
+          name: profile.username,
+          discriminator: profile.discriminator,
+          image: profile.image_url,
+          accentColor: profile.accentColor,
+        };
       },
       // ...add more providers here
     }),
@@ -39,14 +54,14 @@ export default NextAuth({
       // @ts-ignore
       session.refreshToken = token.refreshToken;
       // @ts-ignore
-      session.tokenType = token.tokenType
+      session.tokenType = token.tokenType;
       // @ts-ignore
       session.discordUser = token.profile;
       // @ts-ignore
-      
+
       return session;
     },
   },
-});
-
-// export default NextAuth(authOptions)
+};
+// @ts-ignore
+export default NextAuth(authOptions)
