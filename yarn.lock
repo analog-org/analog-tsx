@@ -1566,6 +1566,7 @@
     "@types/react-dom" "^18.0.8"
     "apollo-server-micro" "^3.11.1"
     "autoprefixer" "^10.4.13"
+    "discord-bitfield-calculator" "^1.0.0"
     "dotenv" "^16.0.3"
     "flowbite" "^1.5.3"
     "flowbite-react" "^0.3.2"
@@ -1691,11 +1692,6 @@
   "integrity" "sha512-H0FDY6+ww4YZe1+L+2ERWU3KsVSInWLvK0TeImhiTi49DXff8sFLnqqnEiEdMEhwFlkQMUIe4xL5Py046s+Ksg=="
   "resolved" "https://registry.npmjs.org/discord-api-types/-/discord-api-types-0.37.16.tgz"
   "version" "0.37.16"
-
-"discord-bitfield-calculator@^1.0.0":
-  "integrity" "sha512-I1istpckG90n/kTId2OGFLz4Bm1uaJUXx6B7CsazMo3MvoQHOsLk0OWzIRlQnOyGynr8A/q9b+6Eo+Ep0UUaCA=="
-  "resolved" "https://registry.npmjs.org/discord-bitfield-calculator/-/discord-bitfield-calculator-1.0.0.tgz"
-  "version" "1.0.0"
 
 "discord.js@^14.6.0":
   "integrity" "sha512-On1K7xpJZRe0KsziIaDih2ksYPhgxym/ZqV45i1f3yig4vUotikqs7qp5oXiTzQ/UTiNRCixUWFTh7vA1YBCqw=="
