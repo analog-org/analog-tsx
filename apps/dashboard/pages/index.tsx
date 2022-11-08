@@ -19,7 +19,17 @@ const index: NextPage = ({
       <>
         Signed in as {session.user?.name} <br />
         <button onClick={() => signOut()}>Sign out</button>
-        
+        <p>Guilds you're owner in: </p>
+        {
+          guilds.map((gld) => {
+            if(gld.owner === true){
+              return (
+                <div>{gld.name}</div>
+                
+              )
+            }
+          })
+        }
       </>
     );
   }
