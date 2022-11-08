@@ -10,6 +10,7 @@ import { authOptions } from "./api/auth/[...nextauth]";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { unstable_getServerSession } from "next-auth/next";
 
+
 const index: NextPage = ({
   guilds,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -22,10 +23,11 @@ const index: NextPage = ({
         <p>Guilds you're owner in: </p>
         {
           guilds.map((gld) => {
+            const serverPerms = bitfieldCalculator.permissions(myBitfield);
             if(gld.owner === true){
               return (
                 <div>{gld.name}</div>
-                
+
               )
             }
           })
