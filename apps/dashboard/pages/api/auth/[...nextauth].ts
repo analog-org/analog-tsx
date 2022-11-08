@@ -58,7 +58,7 @@ export const authOptions = {
       // @ts-ignore
       session.discordUser = token.profile;
       // @ts-ignore
-
+      
       return session;
     },
   },
