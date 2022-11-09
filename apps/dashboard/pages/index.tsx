@@ -9,7 +9,7 @@ import React from "react";
 import { authOptions } from "./api/auth/[...nextauth]";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { unstable_getServerSession } from "next-auth/next";
-
+import perms from "../utils/bitfield"
 
 const index: NextPage = ({
   guilds,
@@ -20,14 +20,13 @@ const index: NextPage = ({
       <>
         Signed in as {session.user?.name} <br />
         <button onClick={() => signOut()}>Sign out</button>
-        <p>Guilds you're owner in: </p>
+        <p>Guilds you can invite me to: </p>
         {
           guilds.map((gld) => {
-            const serverPerms = bitfieldCalculator.permissions(myBitfield);
-            if(gld.owner === true){
+            const serverPerms = perms(gld.permissions);
+            if(serverPerms.includes('MANAGE_GUILD')){
               return (
                 <div>{gld.name}</div>
-
               )
             }
           })
