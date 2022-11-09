@@ -1,4 +1,4 @@
-const permissions = {
+const permissionsObject = {
   CREATE_INSTANT_INVITE: 0x1,
   KICK_MEMBERS: 0x2,
   BAN_MEMBERS: 0x4,
@@ -37,13 +37,13 @@ const permissions = {
   USE_PRIVATE_THREADS: 0x1000000000,
   USE_EXTERNAL_STICKERS: 0x2000000000
 };
-module.exports.help = "see http://invaliduser.uk.to/discord-bitfield-calculator"
-module.exports.permissions = (permBitfield) => {
+
+const permissions = (permBitfield) => {
   let currentPermissions = [];
   const permissionUpper = Math.floor(permBitfield / 0x100000000);
   const permissionLower = Math.floor(permBitfield % 0x100000000);
-  for (let key in permissions) {
-      if ((permissions[key] >= 0x100000000 && (permissionUpper & Math.floor(permissions[key] / 0x100000000))) || (permissions[key] < 0x100000000 && (permissionLower & permissions[key]))) {
+  for (let key in permissionsObject) {
+      if ((permissionsObject[key] >= 0x100000000 && (permissionUpper & Math.floor(permissionsObject[key] / 0x100000000))) || (permissionsObject[key] < 0x100000000 && (permissionLower & permissionsObject[key]))) {
           currentPermissions.push(key);
       } else {
           continue;
@@ -51,10 +51,12 @@ module.exports.permissions = (permBitfield) => {
   };
   return currentPermissions;
 }
-export const bitfield = (bitfield) => {
-  if (permissions[bitfield]) {
-      return permissions[bitfield];
+const bitfield = (bitfield) => {
+  if (permissionsObject[bitfield]) {
+      return permissionsObject[bitfield];
   } else {
       return new Error("that is not a valid bitfield");
   };
 }
+
+export default permissions
