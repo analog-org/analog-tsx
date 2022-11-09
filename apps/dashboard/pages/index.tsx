@@ -22,7 +22,7 @@ const index: NextPage = ({
         <button onClick={() => signOut()}>Sign out</button>
         <p>Guilds you can invite me to: </p>
         {
-          guilds.map((gld) => {
+          guilds.map((gld: guild) => {
             const serverPerms = perms(gld.permissions);
             if(serverPerms.includes('MANAGE_GUILD')){
               return (
