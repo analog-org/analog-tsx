@@ -43,9 +43,9 @@ const index: NextPage = ({
               }
             >
               <Dropdown.Header>
-                <span className="block text-sm">Bonnie Green</span>
+                <span className="block text-sm">{session.discordUser.username}</span>
                 <span className="block truncate text-sm font-medium">
-                  name@flowbite.com
+                  {session.discordUser.email}
                 </span>
               </Dropdown.Header>
               <Dropdown.Item onClick={() => signOut()}>Sign out</Dropdown.Item>
@@ -56,16 +56,18 @@ const index: NextPage = ({
             <Navbar.Link href="" active={true}>
               Home
             </Navbar.Link>
-            
           </Navbar.Collapse>
         </Navbar>
         Signed in as {session.user?.name} <br />
-        
         <p>Guilds you can invite me to: </p>
         {guilds.map((gld: guild) => {
           const serverPerms = perms(gld.permissions);
           if (serverPerms.includes("MANAGE_GUILD")) {
-            return <div>{gld.name}</div>;
+            return (
+              <div className="bg-black">
+                <h1 className="text-white">{gld.name}</h1>
+              </div>
+            );
           }
         })}
       </>
