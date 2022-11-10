@@ -27,7 +27,7 @@ const index: NextPage = ({
               alt="Flowbite Logo"
             />
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-              Flowbite
+              Analog
             </span>
           </Navbar.Brand>
           <div className="flex md:order-2">
@@ -60,7 +60,7 @@ const index: NextPage = ({
           </Navbar.Collapse>
         </Navbar>
         Signed in as {session.user?.name} <br />
-        <button onClick={() => signOut()}>Sign out</button>
+        
         <p>Guilds you can invite me to: </p>
         {guilds.map((gld: guild) => {
           const serverPerms = perms(gld.permissions);
