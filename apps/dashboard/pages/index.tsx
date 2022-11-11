@@ -18,7 +18,7 @@ const index: NextPage = ({
   const { data: session } = useSession();
   if (session) {
     return (
-      <>
+      <div className="bg-gray-800">
         <Navbar fluid={true} rounded={true}>
           <Navbar.Brand href="https://flowbite.com/">
             <img
@@ -43,7 +43,9 @@ const index: NextPage = ({
               }
             >
               <Dropdown.Header>
-                <span className="block text-sm">{session.discordUser.username}</span>
+                <span className="block text-sm">
+                  {session.discordUser.username}
+                </span>
                 <span className="block truncate text-sm font-medium">
                   {session.discordUser.email}
                 </span>
@@ -58,19 +60,19 @@ const index: NextPage = ({
             </Navbar.Link>
           </Navbar.Collapse>
         </Navbar>
-        Signed in as {session.user?.name} <br />
-        <p>Guilds you can invite me to: </p>
+
+        <p className="text-white">Guilds you can invite me to: </p>
         {guilds.map((gld: guild) => {
           const serverPerms = perms(gld.permissions);
           if (serverPerms.includes("MANAGE_GUILD")) {
             return (
-              <div className="bg-black">
+              <div className="bg-gray-800">
                 <h1 className="text-white">{gld.name}</h1>
               </div>
             );
           }
         })}
-      </>
+      </div>
     );
   }
   return (
