@@ -61,17 +61,43 @@ const index: NextPage = ({
           </Navbar.Collapse>
         </Navbar>
 
-        <p className="text-white">Guilds you can invite me to: </p>
-        {guilds.map((gld: guild) => {
-          const serverPerms = perms(gld.permissions);
-          if (serverPerms.includes("MANAGE_GUILD")) {
-            return (
-              <div className="bg-gray-800">
-                <h1 className="text-white">{gld.name}</h1>
-              </div>
-            );
-          }
-        })}
+        <div className=" px-4 py-8 mx-auto sm:px-6 lg:px-8 rounded-xl flex flex-col sm:flex-row flex-initial flex-wrap">
+          <div className="flex flex-col gap-8 rounded-xl lg:grid lg:grid-row lg:grid-cols-4 xl:grid-cols-5">
+            {guilds.map((gld: guild) => {
+              const serverPerms = perms(gld.permissions);
+              if (serverPerms.includes("MANAGE_GUILD")) {
+                return (
+                  <a
+                    href={`https://discord.com/api/oauth2/authorize?client_id=${process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID}&permissions=8&scope=bot%20applications.commands`}
+                  >
+                    <div className="h-20 flex gap-4 flex-row w-auto bg-black rounded-xl  hover:-translate-y-1 hover:scale-110">
+                      <div className="py-2 pl-2">
+                        {gld.icon ? ( // If the server has an icon, display it here
+                          <Image
+                            src={`https://cdn.discordapp.com/icons/${gld.id}/${gld.icon}.png`}
+                            width={64}
+                            height={64}
+                            className="rounded-xl"
+                          />
+                        ) : (
+                          <Image
+                            src="https://discord.com/assets/322c936a8c8be1b803cd94861bdfa868.png"
+                            width={64}
+                            height={64}
+                            className="rounded-xl"
+                          />
+                        )}
+                      </div>
+                      <h1 className="text-white font-helvetica font-bold text-3xl pt-4">
+                        {gld.name}
+                      </h1>
+                    </div>
+                  </a>
+                );
+              }
+            })}
+          </div>
+        </div>
       </div>
     );
   }
