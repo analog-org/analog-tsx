@@ -72,7 +72,7 @@ const index: NextPage = ({
                   >
                     <div className="h-20 flex gap-4 flex-row w-auto bg-black rounded-xl  hover:-translate-y-1 hover:scale-110">
                       <div className="py-2 pl-2">
-                        {gld.icon ? ( // If the server has an icon, display it here
+                        {gld.icon ? ( 
                           <Image
                             src={`https://cdn.discordapp.com/icons/${gld.id}/${gld.icon}.png`}
                             width={64}
@@ -81,7 +81,7 @@ const index: NextPage = ({
                           />
                         ) : (
                           <Image
-                            src="https://discord.com/assets/322c936a8c8be1b803cd94861bdfa868.png"
+                            src={`https://cdn.discordapp.com/embed/avatars/${session.discordUser.discriminator % 5}.png`}
                             width={64}
                             height={64}
                             className="rounded-xl"
