@@ -58,6 +58,9 @@ const index: NextPage = ({
             <Navbar.Link href="" active={true}>
               Home
             </Navbar.Link>
+            <Navbar.Link href="/dashboard" active={true}>
+              Dashboard
+            </Navbar.Link>
           </Navbar.Collapse>
         </Navbar>
 
