@@ -75,7 +75,7 @@ const index: NextPage = ({
                   >
                     <div className="h-20 flex gap-4 flex-row w-auto bg-black rounded-xl  hover:-translate-y-1 hover:scale-110">
                       <div className="py-2 pl-2">
-                        {gld.icon ? ( 
+                        {gld.icon ? (
                           <Image
                             src={`https://cdn.discordapp.com/icons/${gld.id}/${gld.icon}.png`}
                             width={64}
@@ -84,7 +84,9 @@ const index: NextPage = ({
                           />
                         ) : (
                           <Image
-                            src={`https://cdn.discordapp.com/embed/avatars/${session.discordUser.discriminator % 5}.png`}
+                            src={`https://cdn.discordapp.com/embed/avatars/${
+                              session.discordUser.discriminator % 5
+                            }.png`}
                             width={64}
                             height={64}
                             className="rounded-xl"
@@ -105,10 +107,40 @@ const index: NextPage = ({
     );
   }
   return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
+    <div>
+      <Navbar fluid={true} rounded={true}>
+        <Navbar.Brand href="/">
+          <img
+            src="https://avatars.githubusercontent.com/u/110413696?s=200&v=4"
+            className="mr-3 h-6 sm:h-9 rounded-xl"
+            alt="Flowbite Logo"
+          />
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            Analog
+          </span>
+        </Navbar.Brand>
+        <div className="flex md:order-2">
+          <Dropdown
+            arrowIcon={false}
+            inline={true}
+            label={
+              <button onClick={() => signIn()} className="text-white">Sign in</button>
+            }
+          >
+          </Dropdown>
+          <Navbar.Toggle />
+        </div>
+        <Navbar.Collapse>
+          <Navbar.Link href="" active={true}>
+            Home
+          </Navbar.Link>
+          <Navbar.Link href="/dashboard" active={true}>
+            Dashboard
+          </Navbar.Link>
+        </Navbar.Collapse>
+      </Navbar>
+      
+    </div>
   );
 };
 
