@@ -6,13 +6,10 @@ import { customtheme as theme } from "../components/theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
     <Flowbite theme={{ theme }}>
       <SessionProvider session={pageProps.session}>
         <Component {...pageProps} />
       </SessionProvider>
     </Flowbite>
-    </>
-    
   );
 }
