@@ -5,7 +5,7 @@ import GuildIcon from "./GuildIcon";
 type Props = {
   guildId: String;
   guildIcon: String | null;
-  userDiscriminator: String;
+  userDiscriminator: String | number;
   guildName: String;
 };
 
