@@ -14,9 +14,7 @@ import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import GuildContainer from "../components/Guild/GuildContainer";
 import GuildCard from "../components/Guild/GuildCard";
 
-const index: NextPage = ({
-  guilds,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const index: NextPage = () => {
   const { data: session } = useSession();
   if (session) {
     return (
@@ -65,22 +63,6 @@ const index: NextPage = ({
             </Navbar.Link>
           </Navbar.Collapse>
         </Navbar>
-
-        <GuildContainer>
-          {guilds.map((gld: guild) => {
-            const serverPerms = perms(gld.permissions);
-            if (serverPerms.includes("MANAGE_GUILD")) {
-              return (
-                <GuildCard
-                  guildIcon={gld.icon}
-                  guildId={gld.id}
-                  userDiscriminator={session.discordUser.discriminator}
-                  guildName={gld.name}
-                />
-              );
-            }
-          })}
-        </GuildContainer>
       </div>
     );
   }
@@ -120,31 +102,6 @@ const index: NextPage = ({
       </Navbar>
     </div>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const session = await unstable_getServerSession(
-    context.req,
-    context.res,
-    authOptions
-  );
-  const guildFetch = await fetch(
-    `https://discord.com/api/v10/users/@me/guilds`,
-    {
-      headers: {
-        // @ts-ignore
-        Authorization: `Bearer ${session?.accessToken}`,
-      },
-    }
-  );
-  const guilds = await guildFetch.json();
-
-  console.log(session);
-  return {
-    props: {
-      guilds,
-    },
-  };
 };
 
 export default index;
