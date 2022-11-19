@@ -11,6 +11,8 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { unstable_getServerSession } from "next-auth/next";
 import perms from "../utils/bitfield";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
+import GuildContainer from "../components/Guild/GuildContainer";
+import GuildCard from "../components/Guild/GuildCard";
 
 const index: NextPage = ({
   guilds,
@@ -64,45 +66,21 @@ const index: NextPage = ({
           </Navbar.Collapse>
         </Navbar>
 
-        <div className=" px-4 py-8 mx-auto sm:px-6 lg:px-8 rounded-xl flex flex-col sm:flex-row flex-initial flex-wrap">
-          <div className="flex flex-col gap-8 rounded-xl lg:grid lg:grid-row lg:grid-cols-4 xl:grid-cols-5">
-            {guilds.map((gld: guild) => {
-              const serverPerms = perms(gld.permissions);
-              if (serverPerms.includes("MANAGE_GUILD")) {
-                return (
-                  <a
-                    href={`https://discord.com/api/oauth2/authorize?client_id=${process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID}&permissions=8&scope=bot%20applications.commands`}
-                  >
-                    <div className="h-20 flex gap-4 flex-row w-auto bg-black rounded-xl  hover:-translate-y-1 hover:scale-110">
-                      <div className="py-2 pl-2">
-                        {gld.icon ? (
-                          <Image
-                            src={`https://cdn.discordapp.com/icons/${gld.id}/${gld.icon}.png`}
-                            width={64}
-                            height={64}
-                            className="rounded-xl"
-                          />
-                        ) : (
-                          <Image
-                            src={`https://cdn.discordapp.com/embed/avatars/${
-                              session.discordUser.discriminator % 5
-                            }.png`}
-                            width={64}
-                            height={64}
-                            className="rounded-xl"
-                          />
-                        )}
-                      </div>
-                      <h1 className="text-white font-helvetica font-bold text-3xl pt-4">
-                        {gld.name}
-                      </h1>
-                    </div>
-                  </a>
-                );
-              }
-            })}
-          </div>
-        </div>
+        <GuildContainer>
+          {guilds.map((gld: guild) => {
+            const serverPerms = perms(gld.permissions);
+            if (serverPerms.includes("MANAGE_GUILD")) {
+              return (
+                <GuildCard
+                  guildIcon={gld.icon}
+                  guildId={gld.id}
+                  userDiscriminator={session.discordUser.discriminator}
+                  guildName={gld.name}
+                />
+              );
+            }
+          })}
+        </GuildContainer>
       </div>
     );
   }
@@ -124,10 +102,11 @@ const index: NextPage = ({
             arrowIcon={false}
             inline={true}
             label={
-              <button onClick={() => signIn()} className="text-white">Sign in</button>
+              <button onClick={() => signIn()} className="text-white">
+                Sign in
+              </button>
             }
-          >
-          </Dropdown>
+          ></Dropdown>
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
@@ -139,7 +118,6 @@ const index: NextPage = ({
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
-      
     </div>
   );
 };
