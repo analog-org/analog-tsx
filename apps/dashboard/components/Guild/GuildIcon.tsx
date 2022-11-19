@@ -1,15 +1,13 @@
 import { NextPage } from "next";
-import { ReactNode } from "react";
 import Image from "next/image";
 
 type Props = {
-  children: ReactNode;
-  guildId: string;
-  guildIcon: string | null;
-  userDiscriminator: string;
+  guildId: String;
+  guildIcon: String | null;
+  userDiscriminator: number;
 };
 
-const GuildIcon: NextPage<Props> = ({ children, guildIcon, guildId, userDiscriminator }) => {
+const GuildIcon: NextPage<Props> = ({ guildIcon, guildId, userDiscriminator }) => {
   return (
     <div className="py-2 pl-2">
       {guildIcon ? (
