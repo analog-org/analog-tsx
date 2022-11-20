@@ -14,7 +14,7 @@ import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import GuildContainer from "../../components/Guild/GuildContainer";
 import GuildCard from "../../components/Guild/GuildCard";
 
-const index: NextPage = ({
+const Home: NextPage = ({
   guilds,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { data: session } = useSession();
@@ -23,10 +23,11 @@ const index: NextPage = ({
       <div className="bg-gray-800">
         <Navbar fluid={true} rounded={true}>
           <Navbar.Brand href="https://flowbite.com/">
-            <img
+            <Image
               src="https://avatars.githubusercontent.com/u/110413696?s=200&v=4"
               className="mr-3 h-6 sm:h-9 rounded-xl"
               alt="Flowbite Logo"
+              layout="fill"
             />
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
               Analog
@@ -88,10 +89,11 @@ const index: NextPage = ({
     <div>
       <Navbar fluid={true} rounded={true}>
         <Navbar.Brand href="/">
-          <img
+          <Image
             src="https://avatars.githubusercontent.com/u/110413696?s=200&v=4"
             className="mr-3 h-6 sm:h-9 rounded-xl"
             alt="Flowbite Logo"
+            layout="fill"
           />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
             Analog
@@ -102,9 +104,9 @@ const index: NextPage = ({
             arrowIcon={false}
             inline={true}
             label={
-              <button onClick={() => signIn()} className="text-white">
+              <p onClick={() => signIn()} className="text-white">
                 Sign in
-              </button>
+              </p>
             }
           ></Dropdown>
           <Navbar.Toggle />
@@ -147,4 +149,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-export default index;
+export default Home;

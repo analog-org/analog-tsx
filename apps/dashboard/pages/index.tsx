@@ -21,12 +21,14 @@ const index: NextPage = () => {
       <div className="bg-gray-800">
         <Navbar fluid={true} rounded={true}>
           <Navbar.Brand href="https://flowbite.com/">
-            <img
+            <Image
               src="https://avatars.githubusercontent.com/u/110413696?s=200&v=4"
-              className="mr-3 h-6 sm:h-9 rounded-xl"
+              className="mr-5 h-6 sm:h-9 rounded-xl"
               alt="Flowbite Logo"
+              width={36}
+              height={36}
             />
-            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            <span className="ml-3 self-center whitespace-nowrap text-xl font-semibold dark:text-white">
               Analog
             </span>
           </Navbar.Brand>
@@ -65,43 +67,46 @@ const index: NextPage = () => {
         </Navbar>
       </div>
     );
+  } else {
+    return (
+      <div>
+        <Navbar fluid={true} rounded={true}>
+          <Navbar.Brand href="/">
+            <Image
+              src="https://avatars.githubusercontent.com/u/110413696?s=200&v=4"
+              className="mr-3 h-6 sm:h-9 rounded-xl"
+              alt="Flowbite Logo"
+              width={36}
+              height={36}
+            />
+            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+              Analog
+            </span>
+          </Navbar.Brand>
+          <div className="flex md:order-2">
+            <Dropdown
+              arrowIcon={false}
+              inline={true}
+              label={
+                <p onClick={() => signIn()} className="text-white">
+                  Sign in
+                </p>
+              }
+            ></Dropdown>
+            <Navbar.Toggle />
+          </div>
+          <Navbar.Collapse>
+            <Navbar.Link href="" active={true}>
+              Home
+            </Navbar.Link>
+            <Navbar.Link href="/dashboard" active={true}>
+              Dashboard
+            </Navbar.Link>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
+    );
   }
-  return (
-    <div>
-      <Navbar fluid={true} rounded={true}>
-        <Navbar.Brand href="/">
-          <img
-            src="https://avatars.githubusercontent.com/u/110413696?s=200&v=4"
-            className="mr-3 h-6 sm:h-9 rounded-xl"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Analog
-          </span>
-        </Navbar.Brand>
-        <div className="flex md:order-2">
-          <Dropdown
-            arrowIcon={false}
-            inline={true}
-            label={
-              <button onClick={() => signIn()} className="text-white">
-                Sign in
-              </button>
-            }
-          ></Dropdown>
-          <Navbar.Toggle />
-        </div>
-        <Navbar.Collapse>
-          <Navbar.Link href="" active={true}>
-            Home
-          </Navbar.Link>
-          <Navbar.Link href="/dashboard" active={true}>
-            Dashboard
-          </Navbar.Link>
-        </Navbar.Collapse>
-      </Navbar>
-    </div>
-  );
 };
 
 export default index;
