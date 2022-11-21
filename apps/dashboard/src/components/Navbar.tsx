@@ -13,7 +13,7 @@ const NavBar: NextPage = () => {
   const { data: session } = useSession();
   if (session) {
     return (
-      <div className="bg-gray-800">
+      <div>
         <Navbar fluid={true} rounded={true}>
           <Navbar.Brand href="https://flowbite.com/">
             <Image
@@ -32,13 +32,17 @@ const NavBar: NextPage = () => {
               arrowIcon={false}
               inline={true}
               label={
-                <Avatar
-                  alt="User settings"
-                  img={session.discordUser.image_url}
-                  rounded={true}
+                <Image
+                  src={session.discordUser.image_url}
+                  className="mr-5 h-6 sm:h-9 rounded-full"
+                  alt="Flowbite Logo"
+                  width={52}
+                  height={52}
                 />
               }
+              placement="bottom-end"
             >
+              
               <Dropdown.Header>
                 <span className="block text-sm">
                   {session.discordUser.username}
@@ -104,4 +108,4 @@ const NavBar: NextPage = () => {
   }
 };
 
-export default NavBar
+export default NavBar;
