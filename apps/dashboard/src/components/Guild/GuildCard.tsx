@@ -7,9 +7,10 @@ type Props = {
   guildIcon: String | null;
   userDiscriminator: String | number;
   guildName: String;
+  guildSetup: Boolean;
 };
 
-const GuildCard: NextPage<Props> = ({ guildIcon, guildId, userDiscriminator, guildName }) => {
+const GuildCard: NextPage<Props> = ({ guildIcon, guildId, userDiscriminator, guildName, guildSetup }) => {
   return (
     <a
       href={`https://discord.com/api/oauth2/authorize?client_id=${process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID}&permissions=8&scope=bot%20applications.commands`}
