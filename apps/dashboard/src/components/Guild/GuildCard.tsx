@@ -15,7 +15,7 @@ const GuildCard: NextPage<Props> = ({ guildIcon, guildId, userDiscriminator, gui
   if (guildSetup){
     return (
       <Link
-        href={`https://discord.com/api/oauth2/authorize?client_id=${process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID}&permissions=8&scope=bot%20applications.commands`}
+        href={`/dashboard/${guildId}`}
       >
         <div className="h-20 flex gap-4 flex-row w-auto bg-black rounded-xl  hover:-translate-y-1 hover:scale-110 border-green-600">
           <GuildIcon guildIcon={guildIcon} guildId={guildId} userDiscriminator={userDiscriminator}/>
