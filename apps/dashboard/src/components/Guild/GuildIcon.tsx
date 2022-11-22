@@ -15,7 +15,7 @@ const GuildIcon: NextPage<Props> = ({ guildIcon, guildId, userDiscriminator }) =
           src={`https://cdn.discordapp.com/icons/${guildId}/${guildIcon}.png`}
           width={64}
           height={64}
-          className="rounded-xl"
+          className="rounded-full"
           alt="Guild Icon"
         />
       ) : (
@@ -25,7 +25,7 @@ const GuildIcon: NextPage<Props> = ({ guildIcon, guildId, userDiscriminator }) =
           }.png`}
           width={64}
           height={64}
-          className="rounded-xl"
+          className="rounded-full"
           alt="Default Guild Icon" 
         />
       )}
