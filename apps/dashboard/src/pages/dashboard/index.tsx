@@ -62,7 +62,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   );
   const guilds = await guildFetch.json();
-
+  const botGuildsFetch = await fetch(
+    `https://discord.com/api/v10/users/@me/guilds`,
+    {
+      headers: {
+        // @ts-ignore
+        Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
+      },
+    }
+  )
+  const botGuilds = await botGuildsFetch.json();
   console.log(session);
   return {
     props: {
