@@ -16,6 +16,7 @@ import GuildCard from "../../components/Guild/GuildCard";
 
 const Home: NextPage = ({
   guilds,
+  botGuilds,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { data: session } = useSession();
   if (session) {
@@ -31,6 +32,7 @@ const Home: NextPage = ({
                   guildId={gld.id}
                   userDiscriminator={session.discordUser.discriminator}
                   guildName={gld.name}
+                  guildSetup={botGuilds.some((botGuild) => botGuild.id === gld.id)}
                 />
               );
             }
@@ -70,14 +72,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
       },
     }
-  )
+  );
   const botGuilds = await botGuildsFetch.json();
-  console.log(session);
+  
   return {
     props: {
       guilds,
+      botGuilds,
     },
   };
 };
 
 export default Home;
+
