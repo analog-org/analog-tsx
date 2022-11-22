@@ -12,16 +12,17 @@ type Props = {
 };
 
 const GuildCard: NextPage<Props> = ({ guildIcon, guildId, userDiscriminator, guildName, guildSetup }) => {
-  if (guildSetup){
+  if (guildSetup === true) {
     return (
       <Link
         href={`/dashboard/${guildId}`}
       >
-        <div className="h-20 flex gap-4 flex-row w-auto bg-black rounded-xl  hover:-translate-y-1 hover:scale-110 border-green-600">
+        <div className="h-20 flex gap-4 flex-row w-auto bg-black rounded-xl  hover:-translate-y-1 hover:scale-110 border-green-600 border-4">
           <GuildIcon guildIcon={guildIcon} guildId={guildId} userDiscriminator={userDiscriminator}/>
           <h1 className="text-white font-helvetica font-bold text-3xl pt-4">
-            {guildName}
+            {guildName} 
           </h1>
+          
         </div>
       </Link>
     );
@@ -33,8 +34,9 @@ const GuildCard: NextPage<Props> = ({ guildIcon, guildId, userDiscriminator, gui
         <div className="h-20 flex gap-4 flex-row w-auto bg-black rounded-xl  hover:-translate-y-1 hover:scale-110">
           <GuildIcon guildIcon={guildIcon} guildId={guildId} userDiscriminator={userDiscriminator}/>
           <h1 className="text-white font-helvetica font-bold text-3xl pt-4">
-            {guildName}
+            {guildName} 
           </h1>
+          
         </div>
       </a>
     );
