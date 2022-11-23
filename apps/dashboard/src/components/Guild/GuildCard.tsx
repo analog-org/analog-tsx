@@ -62,11 +62,13 @@ const GuildCard: NextPage<Props> = ({
               userDiscriminator={userDiscriminator}
             />
           </span>
-          
-          <h1 className="text-white font-helvetica font-bold text-3xl px-2 pb-2">
-            {guildName}
-          </h1>
-          <Button></Button>
+          <div className="flex flex-row justify-start">
+            <h1 className="text-white flex-none font-helvetica font-bold text-xl px-2 pb-2">
+              {guildName}
+            </h1>
+            <div className="flex-none">
+            <Button color="light">Invite</Button></div>
+          </div>
         </div>
       </Link>
     );
