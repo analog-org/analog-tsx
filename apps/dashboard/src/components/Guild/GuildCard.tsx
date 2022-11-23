@@ -2,6 +2,8 @@ import { NextPage } from "next";
 import { ReactNode } from "react";
 import GuildIcon from "./GuildIcon";
 import Link from "next/link";
+import GuildIconLG from "./GuildIconLG";
+import { Button } from "flowbite-react";
 
 type Props = {
   guildId: String;
@@ -11,34 +13,62 @@ type Props = {
   guildSetup: Boolean;
 };
 
-const GuildCard: NextPage<Props> = ({ guildIcon, guildId, userDiscriminator, guildName, guildSetup }) => {
+const GuildCard: NextPage<Props> = ({
+  guildIcon,
+  guildId,
+  userDiscriminator,
+  guildName,
+  guildSetup,
+}) => {
   if (guildSetup === true) {
     return (
-      <Link
-        href={`/dashboard/${guildId}`}
-      >
-        <div className="h-20 flex gap-4 flex-row w-auto bg-black rounded-xl  hover:-translate-y-1 hover:scale-110 border-green-600 border-4">
-          <GuildIcon guildIcon={guildIcon} guildId={guildId} userDiscriminator={userDiscriminator}/>
+      <Link href={`/dashboard/${guildId}`}>
+        <div className="h-20 flex gap-4 flex-col w-full bg-black rounded-xl  hover:-translate-y-1 hover:scale-110 border-green-600 border-4">
+          <div className="py-2 pl-2 relative items-center justify-end overflow-hidden w-full h-full">
+            <GuildIconLG
+              guildIcon={guildIcon}
+              guildId={guildId}
+              userDiscriminator={userDiscriminator}
+            />
+          </div>
+          <GuildIcon
+            guildIcon={guildIcon}
+            guildId={guildId}
+            userDiscriminator={userDiscriminator}
+          />
           <h1 className="text-white font-helvetica font-bold text-3xl pt-4">
-            {guildName} 
+            {guildName}
           </h1>
-          
         </div>
       </Link>
     );
   } else {
     return (
-      <a
+      <Link
         href={`https://discord.com/api/oauth2/authorize?client_id=${process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID}&permissions=8&scope=bot%20applications.commands`}
       >
-        <div className="h-20 flex gap-4 flex-row w-auto bg-black rounded-xl  hover:-translate-y-1 hover:scale-110">
-          <GuildIcon guildIcon={guildIcon} guildId={guildId} userDiscriminator={userDiscriminator}/>
-          <h1 className="text-white font-helvetica font-bold text-3xl pt-4">
-            {guildName} 
-          </h1>
+        <div className="h-56 flex gap-4 flex-col w-full sm:w-80 bg-black rounded-xl relative">
+          <div className="py-2 pl-2 relative items-center justify-end overflow-hidden w-full h-full rounded-xl">
+            <GuildIconLG
+              guildIcon={guildIcon}
+              guildId={guildId}
+              userDiscriminator={userDiscriminator}
+            />
+          </div>
+          <span className="absolute top-9 left-28 items-center justify-center">
+            <GuildIcon
+              guildIcon={guildIcon}
+              guildId={guildId}
+              userDiscriminator={userDiscriminator}
+            />
+          </span>
           
+          <h1 className="text-white font-helvetica font-bold text-3xl px-2 pb-2">
+            {guildName}
+          </h1>
+          <Button></Button>
         </div>
-      </a>
+      </Link>
     );
   }
 };

@@ -7,15 +7,18 @@ type Props = {
   userDiscriminator: number;
 };
 
-const GuildIconLG: NextPage<Props> = ({ guildIcon, guildId, userDiscriminator }) => {
+const GuildIconLG: NextPage<Props> = ({
+  guildIcon,
+  guildId,
+  userDiscriminator,
+}) => {
   return (
-    <div className="py-2 pl-2">
+    <>
       {guildIcon ? (
         <Image
           src={`https://cdn.discordapp.com/icons/${guildId}/${guildIcon}.png`}
-          width={64}
-          height={64}
-          className="rounded-full"
+          layout="fill"
+          className="blur-md rounded-xl"
           alt="Guild Icon"
         />
       ) : (
@@ -23,13 +26,12 @@ const GuildIconLG: NextPage<Props> = ({ guildIcon, guildId, userDiscriminator })
           src={`https://cdn.discordapp.com/embed/avatars/${
             userDiscriminator % 5
           }.png`}
-          width={64}
-          height={64}
-          className="rounded-full"
-          alt="Default Guild Icon" 
+          layout="fill"
+          className="blur-md"
+          alt="Default Guild Icon"
         />
       )}
-    </div>
+    </>
   );
 };
 
