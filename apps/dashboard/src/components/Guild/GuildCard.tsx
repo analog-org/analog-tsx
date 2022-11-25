@@ -47,7 +47,7 @@ const GuildCard: NextPage<Props> = ({
       <Link
         href={`https://discord.com/api/oauth2/authorize?client_id=${process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID}&permissions=8&scope=bot%20applications.commands`}
       >
-        <div className="h-56 flex gap-4 flex-col w-full sm:w-80 bg-black rounded-xl relative">
+        <div className="h-56 flex gap-4 flex-col w-72 sm:w-80 bg-black rounded-xl relative">
           <div className="py-2 pl-2 relative items-center justify-end overflow-hidden w-full h-full rounded-xl">
             <GuildIconLG
               guildIcon={guildIcon}
