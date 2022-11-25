@@ -519,14 +519,9 @@
   dependencies:
     "glob" "7.1.7"
 
-"@next/swc-linux-x64-gnu@12.3.2":
-  "integrity" "sha512-fCPkLuwDwY8/QeXxciJJjDHG09liZym/Bhb4A+RLFQ877wUkwFsNWDUTSdUx0YXlYK/1gf67BKauqKkOKp6CYw=="
-  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-12.3.2.tgz"
-  "version" "12.3.2"
-
-"@next/swc-linux-x64-musl@12.3.2":
-  "integrity" "sha512-o+GifBIQ2K+/MEFxHsxUZoU3bsuVFLXZYWd3idimFHiVdDCVYiKsY6mYMmKDlucX+9xRyOCkKL9Tjf+3tuXJpw=="
-  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-12.3.2.tgz"
+"@next/swc-win32-x64-msvc@12.3.2":
+  "integrity" "sha512-tpQJYUH+TzPMIsdVl9fH8uDg47iwiNjKY+8e9da3dXqlkztKzjSw0OwSADoqh3KrifplXeKSta+BBGLdBqg3sg=="
+  "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.3.2.tgz"
   "version" "12.3.2"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -957,7 +952,7 @@
     "require-from-string" "^2.0.2"
     "uri-js" "^4.2.2"
 
-"analog-ts@file:/home/container/projects/analog-tsx/apps/bot":
+"analog-ts@file:C:\\Users\\BossDaily\\Documents\\Repos\\DiscordBots\\Typescript\\analog-tsx\\apps\\bot":
   "resolved" "file:apps/bot"
   "version" "1.1.0"
   dependencies:
@@ -1557,7 +1552,7 @@
   "resolved" "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.8.tgz"
   "version" "1.0.8"
 
-"dashboard@file:/home/container/projects/analog-tsx/apps/dashboard":
+"dashboard@file:C:\\Users\\BossDaily\\Documents\\Repos\\DiscordBots\\Typescript\\analog-tsx\\apps\\dashboard":
   "resolved" "file:apps/dashboard"
   "version" "0.1.0"
   dependencies:
@@ -1568,7 +1563,7 @@
     "autoprefixer" "^10.4.13"
     "dotenv" "^16.0.3"
     "flowbite" "^1.5.3"
-    "flowbite-react" "^0.3.2"
+    "flowbite-react" "^0.3.5"
     "framer-motion" "^7.6.4"
     "graphql" "^16.6.0"
     "micro-cors" "^0.1.1"
@@ -1851,7 +1846,7 @@
   dependencies:
     "eslint-config-airbnb-base" "^15.0.0"
 
-"eslint-config-custom@*", "eslint-config-custom@file:/home/container/projects/analog-tsx/packages/eslint-config-custom":
+"eslint-config-custom@*", "eslint-config-custom@file:C:\\Users\\BossDaily\\Documents\\Repos\\DiscordBots\\Typescript\\analog-tsx\\packages\\eslint-config-custom":
   "resolved" "file:packages/eslint-config-custom"
   "version" "0.0.0"
   dependencies:
@@ -2319,10 +2314,10 @@
   "resolved" "https://registry.npmjs.org/flatted/-/flatted-3.2.7.tgz"
   "version" "3.2.7"
 
-"flowbite-react@^0.3.2":
-  "integrity" "sha512-Cioqan7ZMmA8njbUjo+CuAmOhcLPvKlHPZSA1P8A23XTHCPuqgoFq7OtIXTBw2fXFWl0DFvKcnLTAGQmDCXl+w=="
-  "resolved" "https://registry.npmjs.org/flowbite-react/-/flowbite-react-0.3.2.tgz"
-  "version" "0.3.2"
+"flowbite-react@^0.3.5":
+  "integrity" "sha512-X2unmmXmS7DZbGTk+C7jf0qrtpPu4i/yo8OeHHd1XO5V5TAUjhAyYIcy3RwKjKS+WC+Fj/rMHe5QKBF7E0ryoA=="
+  "resolved" "https://registry.npmjs.org/flowbite-react/-/flowbite-react-0.3.5.tgz"
+  "version" "0.3.5"
   dependencies:
     "@floating-ui/react-dom" "^1.0.0"
     "@floating-ui/react-dom-interactions" "^0.9.1"
@@ -4253,7 +4248,7 @@
     "minimist" "^1.2.6"
     "strip-bom" "^3.0.0"
 
-"tsconfig@*", "tsconfig@file:/home/container/projects/analog-tsx/packages/tsconfig":
+"tsconfig@*", "tsconfig@file:C:\\Users\\BossDaily\\Documents\\Repos\\DiscordBots\\Typescript\\analog-tsx\\packages\\tsconfig":
   "resolved" "file:packages/tsconfig"
   "version" "0.0.0"
 
@@ -4279,9 +4274,9 @@
   dependencies:
     "tslib" "^1.8.1"
 
-"turbo-linux-64@1.6.3":
-  "integrity" "sha512-O9uc6J0yoRPWdPg9THRQi69K6E2iZ98cRHNvus05lZbcPzZTxJYkYGb5iagCmCW/pq6fL4T4oLWAd6evg2LGQA=="
-  "resolved" "https://registry.npmjs.org/turbo-linux-64/-/turbo-linux-64-1.6.3.tgz"
+"turbo-windows-64@1.6.3":
+  "integrity" "sha512-lKRqwL3mrVF09b9KySSaOwetehmGknV9EcQTF7d2dxngGYYX1WXoQLjFP9YYH8ZV07oPm+RUOAKSCQuDuMNhiA=="
+  "resolved" "https://registry.npmjs.org/turbo-windows-64/-/turbo-windows-64-1.6.3.tgz"
   "version" "1.6.3"
 
 "turbo@latest":
@@ -4326,7 +4321,7 @@
   "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.8.4.tgz"
   "version" "4.8.4"
 
-"ui@file:/home/container/projects/analog-tsx/packages/ui":
+"ui@file:C:\\Users\\BossDaily\\Documents\\Repos\\DiscordBots\\Typescript\\analog-tsx\\packages\\ui":
   "resolved" "file:packages/ui"
   "version" "0.0.0"
 
