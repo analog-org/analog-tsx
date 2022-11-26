@@ -4,13 +4,25 @@ import { SessionProvider } from "next-auth/react";
 import { Flowbite } from "flowbite-react";
 import { customtheme as theme } from "../components/theme";
 import Navbar from "../components/Navbar";
+import { NextPage } from "next";
 
-export default function App({ Component, pageProps }: AppProps) {
+
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: React.ReactElement) => React.ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page)
+
   return (
     <Flowbite theme={{ theme }}>
       <SessionProvider session={pageProps.session}>
         <Navbar />
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
       </SessionProvider>
     </Flowbite>
   );
