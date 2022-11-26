@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <Flowbite theme={{ theme }}>
       <SessionProvider session={pageProps.session}>
-        <Navbar />
+        
         {getLayout(<Component {...pageProps} />)}
       </SessionProvider>
     </Flowbite>
