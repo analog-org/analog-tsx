@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
+    "@skyra/discord-components-react": "^3.4.1",
     "@types/node": "^18.11.9",
     "@types/react-dom": "^18.0.8",
     "apollo-server-micro": "^3.11.1",
