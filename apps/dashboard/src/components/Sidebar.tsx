@@ -20,7 +20,7 @@ const SideBar:NextPage = ({pages}: InferGetServerSidePropsType<typeof getServerS
         <Sidebar.Items>
           <Sidebar.ItemGroup>
             <Sidebar.Item href="#">Dashboard</Sidebar.Item>
-            {'fortnite'}
+            <Sidebar.Item href="/embed">Embed Builder</Sidebar.Item>
           </Sidebar.ItemGroup>
         </Sidebar.Items>
       </Sidebar>
