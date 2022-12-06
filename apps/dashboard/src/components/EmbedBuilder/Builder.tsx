@@ -56,7 +56,7 @@ const Builder: NextPage<Props> = ({botProfile}) => {
       </InputContainer>
       <div className="rounded-2xl">
         <DiscordMessages>
-          <DiscordMessage author={`${botProfile.username}`} avatar={`https://cdn.discordapp.com/icons/${botProfile.id}/${botProfile.avatar}.png`}>
+          <DiscordMessage author={`${botProfile.username}`} avatar={`https://cdn.discordapp.com/avatars/${botProfile.id}/${botProfile.avatar}.png`} bot={true} verified={true}>
             
             Hello, World!
           </DiscordMessage>
