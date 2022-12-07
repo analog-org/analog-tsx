@@ -54,6 +54,7 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
     },
     title: "",
     description: "",
+    color: "",
   });
 
   return (
@@ -115,7 +116,13 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Description
                   </label>
-                  <textarea className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                  <textarea
+                    value={embed.description}
+                    onChange={(e) =>
+                      setEmbed({ ...embed, description: e.target.value })
+                    }
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  />
                 </div>
                 <div className="grid gap-6 mb-6 md:grid-cols-2">
                   <div className="mb-6">
@@ -144,8 +151,10 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
             bot={true}
             verified={true}
           >
-            <DiscordEmbed>
-
+            <DiscordEmbed slot="embeds" embedTitle={embed.title} >
+              <DiscordEmbedDescription slot="description">
+                {embed.description}
+              </DiscordEmbedDescription>
             </DiscordEmbed>
           </DiscordMessage>
         </DiscordMessages>
