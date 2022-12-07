@@ -39,6 +39,7 @@ import Image from "next/image";
 import { Avatar, Dropdown, Navbar, Footer, Accordion } from "flowbite-react";
 import InputContainer from "./InputContainer";
 import { unstable_getServerSession } from "next-auth/next";
+import Colorful from "@uiw/react-color-colorful";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 
 type Props = {
@@ -135,7 +136,21 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                       Color
                     </label>
-                    <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                    <Dropdown
+                      label={
+                        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                      }
+                      inline
+                    >
+                      <Dropdown.Item>
+                        <Colorful
+                        disableAlpha={true}
+                        color={embed.color}
+                        onChange={(color) => setEmbed(...embed, color: color.hexa)}
+                      />
+                      </Dropdown.Item>
+                      
+                    </Dropdown>
                   </div>
                 </div>
               </form>
@@ -151,7 +166,7 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
             bot={true}
             verified={true}
           >
-            <DiscordEmbed slot="embeds" embedTitle={embed.title} >
+            <DiscordEmbed slot="embeds" embedTitle={embed.title}>
               <DiscordEmbedDescription slot="description">
                 {embed.description}
               </DiscordEmbedDescription>
