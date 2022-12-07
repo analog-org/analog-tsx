@@ -147,6 +147,13 @@
   dependencies:
     "regenerator-runtime" "^0.13.10"
 
+"@babel/runtime@~7.19.0":
+  "integrity" "sha512-EXpLCrk55f+cYqmHsSR+yD/0gAIMxxA9QK9lnQWzhMCvt+YmoBN7Zx94s++Kv0+unHk39vxNO8t+CMA2WSS3wA=="
+  "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.19.4.tgz"
+  "version" "7.19.4"
+  dependencies:
+    "regenerator-runtime" "^0.13.4"
+
 "@commitlint/config-validator@^17.1.0":
   "integrity" "sha512-Q1rRRSU09ngrTgeTXHq6ePJs2KrI+axPTgkNYDWSJIuS1Op4w3J30vUfSXjwn5YEJHklK3fSqWNHmBhmTR7Vdg=="
   "resolved" "https://registry.npmjs.org/@commitlint/config-validator/-/config-validator-17.1.0.tgz"
@@ -876,6 +883,56 @@
   dependencies:
     "@typescript-eslint/types" "5.42.0"
     "eslint-visitor-keys" "^3.3.0"
+
+"@uiw/color-convert@1.1.1":
+  "integrity" "sha512-lLuNBe6r1/hXzQi04YOnaOWJFgpbJgEuL+CYOfd03EBwo0r1aKVGlmhu6xhDATooKRx3CRWM+SgImy9Iebj/Tg=="
+  "resolved" "https://registry.npmjs.org/@uiw/color-convert/-/color-convert-1.1.1.tgz"
+  "version" "1.1.1"
+
+"@uiw/react-color-alpha@1.1.1":
+  "integrity" "sha512-PM4CuZDJpljiALflIKO6fMJAs70N7W087OZe3VsFgDC5joqjr/ScNQ4aY1OVJCorfbA441q4bK3SRSrjQyQd/A=="
+  "resolved" "https://registry.npmjs.org/@uiw/react-color-alpha/-/react-color-alpha-1.1.1.tgz"
+  "version" "1.1.1"
+  dependencies:
+    "@babel/runtime" "~7.19.0"
+    "@uiw/color-convert" "1.1.1"
+    "@uiw/react-drag-event-interactive" "1.1.1"
+
+"@uiw/react-color-colorful@^1.1.1":
+  "integrity" "sha512-tN38NS8VzVSru3PBplXOVYwtKH4Z+cOT7uqCnmN0dalbhEbwkO5k7gRGvMoaHvesNSFxnVe7h3iglCQJtoeCsw=="
+  "resolved" "https://registry.npmjs.org/@uiw/react-color-colorful/-/react-color-colorful-1.1.1.tgz"
+  "version" "1.1.1"
+  dependencies:
+    "@babel/runtime" "~7.19.0"
+    "@uiw/color-convert" "1.1.1"
+    "@uiw/react-color-alpha" "1.1.1"
+    "@uiw/react-color-hue" "1.1.1"
+    "@uiw/react-color-saturation" "1.1.1"
+
+"@uiw/react-color-hue@1.1.1":
+  "integrity" "sha512-p1z64yLc52x1OVJkN1zk9W14B85MR+xj1qRFxX5JRTFds6bfKmXdwDAu4dBRmHg1LRkTRpMvIs89z/0u71jgJg=="
+  "resolved" "https://registry.npmjs.org/@uiw/react-color-hue/-/react-color-hue-1.1.1.tgz"
+  "version" "1.1.1"
+  dependencies:
+    "@babel/runtime" "~7.19.0"
+    "@uiw/color-convert" "1.1.1"
+    "@uiw/react-color-alpha" "1.1.1"
+
+"@uiw/react-color-saturation@1.1.1":
+  "integrity" "sha512-WlJqpcvQDmvoh2gYlvIp5H3fnECAyHr+MYGRVSn1+cPuF/XRhrYnDaLFYjGXdYQpv69j1LSdJ1hOOg4dnoa4SQ=="
+  "resolved" "https://registry.npmjs.org/@uiw/react-color-saturation/-/react-color-saturation-1.1.1.tgz"
+  "version" "1.1.1"
+  dependencies:
+    "@babel/runtime" "~7.19.0"
+    "@uiw/color-convert" "1.1.1"
+    "@uiw/react-drag-event-interactive" "1.1.1"
+
+"@uiw/react-drag-event-interactive@1.1.1":
+  "integrity" "sha512-vD/I7zzDJR6plZKRrgVimKhcpBBtJoTk8AjNi+qvGHu33pMg4/BwuGhTyk02EAzj8HtosZvTDnPcfgERNPGQDg=="
+  "resolved" "https://registry.npmjs.org/@uiw/react-drag-event-interactive/-/react-drag-event-interactive-1.1.1.tgz"
+  "version" "1.1.1"
+  dependencies:
+    "@babel/runtime" "~7.19.0"
 
 "@wry/context@^0.6.0":
   "integrity" "sha512-LOmVnY1iTU2D8tv4Xf6MVMZZ+juIJ87Kt/plMijjN20NMAXGmH4u8bS1t0uT74cZ5gwpocYueV58YwyI8y+GKw=="
@@ -3701,7 +3758,7 @@
     "iconv-lite" "0.4.24"
     "unpipe" "1.0.0"
 
-"react-dom@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^17.0.2 || ^18", "react-dom@^17.0.2 || ^18.0.0-0", "react-dom@^18", "react-dom@^18.0.0", "react-dom@^18.2.0", "react-dom@>=16.8.0", "react-dom@16.8.x || 17.x || 18.x":
+"react-dom@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^17.0.2 || ^18", "react-dom@^17.0.2 || ^18.0.0-0", "react-dom@^18", "react-dom@^18.0.0", "react-dom@^18.2.0", "react-dom@>=16.8.0", "react-dom@>=16.9.0", "react-dom@16.8.x || 17.x || 18.x":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -3728,7 +3785,7 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react@*", "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18", "react@^17.0.2 || ^18.0.0-0", "react@^18", "react@^18.0.0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.8.0", "react@16.8.x || 17.x || 18.x":
+"react@*", "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18", "react@^17.0.2 || ^18.0.0-0", "react@^18", "react@^18.0.0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.8.0", "react@>=16.9.0", "react@16.8.x || 17.x || 18.x":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -3765,7 +3822,7 @@
   dependencies:
     "picomatch" "^2.2.1"
 
-"regenerator-runtime@^0.13.10":
+"regenerator-runtime@^0.13.10", "regenerator-runtime@^0.13.4":
   "integrity" "sha512-KepLsg4dU12hryUO7bp/axHAKvwGOCV0sGloQtpagJ12ai+ojVDqkeGSiRX1zlq+kjIMZ1t7gpze+26QqtdGqw=="
   "resolved" "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.10.tgz"
   "version" "0.13.10"
