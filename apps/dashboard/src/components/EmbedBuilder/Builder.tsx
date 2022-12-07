@@ -34,7 +34,7 @@ import {
   InferGetServerSidePropsType,
   NextPage,
 } from "next";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import Image from "next/image";
 import { Avatar, Dropdown, Navbar, Footer, Accordion } from "flowbite-react";
 import InputContainer from "./InputContainer";
@@ -46,6 +46,16 @@ type Props = {
 };
 
 const Builder: NextPage<Props> = ({ botProfile }) => {
+  const [embed, setEmbed] = useState({
+    author: {
+      name: "",
+      url: "",
+      icon_url: "",
+    },
+    title: "",
+    description: "",
+  });
+
   return (
     <div className="py-2 pr-4 flex flex-row gap-2">
       <InputContainer>
@@ -63,18 +73,16 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
                       type="text"
                       id="first_name"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      required
                     />
                   </div>
                   <div>
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                      Icon URL
+                      Author Icon URL
                     </label>
                     <input
                       type="text"
-                      id="last_name"
+                      id="author_icon_url"
                       className="resize-y bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      required
                     />
                   </div>
                 </div>
@@ -82,10 +90,46 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Author
                   </label>
+                  <textarea className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+              </form>
+            </Accordion.Content>
+          </Accordion.Panel>
+          <Accordion.Panel>
+            <Accordion.Title>Body</Accordion.Title>
+            <Accordion.Content>
+              <form>
+                <div className="mb-6">
+                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Title
+                  </label>
                   <textarea
+                    value={embed.title}
+                    onChange={(e) =>
+                      setEmbed({ ...embed, title: e.target.value })
+                    }
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                
                   />
+                </div>
+                <div className="mb-6">
+                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Description
+                  </label>
+                  <textarea className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+                <div className="grid gap-6 mb-6 md:grid-cols-2">
+                  <div className="mb-6">
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      URL
+                    </label>
+                    <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                  </div>
+                  <div className="mb-6">
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      Color
+                    </label>
+                    <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                  </div>
                 </div>
               </form>
             </Accordion.Content>
@@ -100,7 +144,9 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
             bot={true}
             verified={true}
           >
-            Hello, World!
+            <DiscordEmbed>
+
+            </DiscordEmbed>
           </DiscordMessage>
         </DiscordMessages>
       </div>
