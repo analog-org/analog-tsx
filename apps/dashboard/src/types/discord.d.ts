@@ -23,4 +23,3 @@ interface user {
   premium_type: Number | null,
   public_flags: Number | null,
 }
-
