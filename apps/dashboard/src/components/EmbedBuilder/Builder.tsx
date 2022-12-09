@@ -56,6 +56,14 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
     title: "",
     description: "",
     color: "",
+    url: "",
+    thumbnail: {
+      url: ""
+    },
+    image: {
+      url: ""
+    },
+    
   });
 
   return (
@@ -130,7 +138,13 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                       URL
                     </label>
-                    <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                    <input
+                      value={embed.url}
+                      onChange={(e) =>
+                        setEmbed({ ...embed, url: e.target.value })
+                      }
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
                   </div>
                   <div className="mb-6">
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -144,6 +158,7 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
                         />
                       }
                       inline
+                      dismissOnClick={false}
                     >
                       <Dropdown.Item>
                         <Colorful
@@ -174,6 +189,7 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
               slot="embeds"
               embedTitle={embed.title}
               color={embed.color}
+              url={embed.url}
             >
               <DiscordEmbedDescription slot="description">
                 {embed.description}
