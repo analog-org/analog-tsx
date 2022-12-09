@@ -41,6 +41,7 @@ import InputContainer from "./InputContainer";
 import { unstable_getServerSession } from "next-auth/next";
 import Colorful from "@uiw/react-color-colorful";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
+import ChannelSelection from "../Selection/ChannelSelection/ChannelSelection";
 
 type Props = {
   botProfile: user;
@@ -197,6 +198,9 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
             </DiscordEmbed>
           </DiscordMessage>
         </DiscordMessages>
+      </div>
+      <div>
+        <ChannelSelection />                        
       </div>
     </div>
   );
