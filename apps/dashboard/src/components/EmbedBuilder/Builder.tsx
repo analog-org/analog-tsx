@@ -42,12 +42,14 @@ import { unstable_getServerSession } from "next-auth/next";
 import Colorful from "@uiw/react-color-colorful";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import ChannelSelection from "../Selection/ChannelSelection/ChannelSelection";
+import { type APIRole } from "discord-api-types/v10";
 
 type Props = {
   botProfile: user;
+  rolesList: APIRole[]
 };
 
-const Builder: NextPage<Props> = ({ botProfile }) => {
+const Builder: NextPage<Props> = ({ botProfile, rolesList }) => {
   const [embed, setEmbed] = useState({
     author: {
       name: "",
@@ -200,7 +202,7 @@ const Builder: NextPage<Props> = ({ botProfile }) => {
         </DiscordMessages>
       </div>
       <div>
-        <ChannelSelection />                        
+        <ChannelSelection roles={rolesList}/>                        
       </div>
     </div>
   );

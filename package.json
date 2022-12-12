@@ -22,7 +22,6 @@
   },
   "packageManager": "npm@8.19.2",
   "dependencies": {
-    "discord-api-types": "^0.37.21",
     "prisma": "^4.5.0"
   }
 }

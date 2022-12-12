@@ -1,12 +1,20 @@
-import { NextPage } from 'next';
-import React, { useState } from 'react';
+import { NextPage } from "next";
+import React, { useState } from "react";
+import { type APIChannel } from 'discord-api-types/v10';
 
-import Select from 'react-select';
+import Select from "react-select";
 
 
 
-const ChannelSelection: NextPage = () => {
+type Props = {
+  channels: APIChannel[]
+};
 
+
+const ChannelSelection: NextPage<Props> = ({channels}) => {
+  const options = []
+  channels.forEach((c) => options.push({value: c.id, label: c.name}))
+  
   return (
     <>
       <Select
@@ -14,47 +22,11 @@ const ChannelSelection: NextPage = () => {
         classNamePrefix="select"
         isSearchable
         isClearable
+        options={options}
+        
       />
-
-      <div
-        style={{
-          color: 'hsl(0, 0%, 40%)',
-          display: 'inline-block',
-          fontSize: 12,
-          fontStyle: 'italic',
-          marginTop: '1em',
-        }}
-      >
-        <Checkbox
-          checked={isClearable}
-          onChange={() => setIsClearable((state) => !state)}
-        >
-          Clearable
-        </Checkbox>
-        <Checkbox
-          checked={isSearchable}
-          onChange={() => setIsSearchable((state) => !state)}
-        >
-          Searchable
-        </Checkbox>
-        <Checkbox
-          checked={isDisabled}
-          onChange={() => setIsDisabled((state) => !state)}
-        >
-          Disabled
-        </Checkbox>
-        <Checkbox
-          checked={isLoading}
-          onChange={() => setIsLoading((state) => !state)}
-        >
-          Loading
-        </Checkbox>
-        <Checkbox checked={isRtl} onChange={() => setIsRtl((state) => !state)}>
-          RTL
-        </Checkbox>
-      </div>
     </>
   );
 };
 
-export default ChannelSelection
+export default ChannelSelection;

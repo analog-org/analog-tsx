@@ -19,6 +19,7 @@
     "@uiw/react-color-colorful": "^1.1.1",
     "apollo-server-micro": "^3.11.1",
     "autoprefixer": "^10.4.13",
+    "discord-api-types": "^0.37.22",
     "dotenv": "^16.0.3",
     "flowbite": "^1.5.3",
     "flowbite-react": "^0.3.5",

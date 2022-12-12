@@ -13,7 +13,6 @@ import { authOptions } from "../../api/auth/[...nextauth]";
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const router = useRouter();
   const { guildid } = router.query
-  console.log(router.asPath);
 
   return (
     <div className="text-white">
@@ -25,6 +24,8 @@ import { authOptions } from "../../api/auth/[...nextauth]";
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const guildId = context.query.id
+
   const session = await unstable_getServerSession(
     context.req,
     context.res,
@@ -50,6 +51,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   );
   const botProfile: user = await botProfileFetch.json();
+
+  const rolesFetch = await fetch(
+    `https://discord.com/api/v10/users/@me`,
+    {
+      headers: {
+        // @ts-ignore
+        Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
+      },
+    }
+  );
   
   return {
     props: {
