@@ -53,18 +53,21 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   });
   const botProfile: user = await botProfileFetch.json();
 
-  const rolesFetch = await fetch(
+  const channelsFetch = await fetch(
     `https://discord.com/api/v10/guilds/${guildId}/channels`,
     {
       headers: {
         // @ts-ignore
-        Authorization: `Bearer ${session?.accessToken}`,
+        Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
+        'Content-Type': 'application/json',
       },
+      method: 'GET',
+      
     }
   );
 
-  const channels = await rolesFetch.json();
-
+  const channels = await channelsFetch.json();
+  console.log(channels)
   return {
     props: {
       guilds,
