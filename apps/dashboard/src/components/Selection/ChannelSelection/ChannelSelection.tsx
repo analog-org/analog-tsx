@@ -12,7 +12,7 @@ type Props = {
 
 
 const ChannelSelection: NextPage<Props> = ({channels}) => {
-  const options = []
+  const options = [{}]
   channels.forEach((c) => options.push({value: c.id, label: c.name}))
   
   return (

@@ -14,7 +14,7 @@ import { authOptions } from "../../api/auth/[...nextauth]";
 const Home: NextPageWithLayout = ({
   guilds,
   botProfile,
-  roles,
+  channels,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const router = useRouter();
   const { guildid } = router.query;
@@ -22,7 +22,7 @@ const Home: NextPageWithLayout = ({
   return (
     <div className="text-white">
       Guild Id: {guildid}
-      <Builder botProfile={botProfile} rolesList={roles} />
+      <Builder botProfile={botProfile} rolesList={channels} />
     </div>
   );
 };
@@ -63,13 +63,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   );
 
-  const roles = await rolesFetch.json();
+  const channels = await rolesFetch.json();
 
   return {
     props: {
       guilds,
       botProfile,
-      roles,
+      channels,
     },
   };
 };
