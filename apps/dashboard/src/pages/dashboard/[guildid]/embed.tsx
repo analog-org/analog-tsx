@@ -28,7 +28,7 @@ const Home: NextPageWithLayout = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const guildId = context.query.id;
+  const guildId = context.query.guildid
 
   const session = await unstable_getServerSession(
     context.req,
@@ -67,7 +67,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   );
 
   const channels = await channelsFetch.json();
-  console.log(channels)
+  console.log(guildId)
   return {
     props: {
       guilds,
