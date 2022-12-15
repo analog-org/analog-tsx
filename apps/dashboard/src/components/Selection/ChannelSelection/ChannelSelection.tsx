@@ -10,7 +10,7 @@ type Props = {
 
 const ChannelSelection: NextPage<Props> = ({ channels }) => {
   const channelArray = Object.values(channels);
-  const options = [{value: '', label: 'Select a channel'}];
+  const options = [{ value: "", label: "Select a channel" }];
   channelArray.forEach((c) => options.push({ value: c.id, label: c.name }));
 
   return (
@@ -21,15 +21,34 @@ const ChannelSelection: NextPage<Props> = ({ channels }) => {
         isSearchable
         isClearable
         options={options}
-        theme={(theme) => ({
-          ...theme,
-          borderRadius: 0,
-          colors: {
-            ...theme.colors,
-            primary25: "hotpink",
-            primary: "black",
+        styles={{
+          control: (styles) => ({ ...styles, backgroundColor: "black"}),
+          option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+            return {
+              ...styles,
+              backgroundColor: isDisabled
+                ? null
+                : isSelected
+                ? '#00b0f4'
+                : isFocused
+                ? '#00b0f4'
+                : null,
+                
+            color: isDisabled
+              ? '#ccc'
+              : isSelected
+              ? 'white'
+              : isFocused
+              ? 'white'
+              : 'black',
+
+            };
           },
-        })}
+          placeholder: styles => ({ ...styles, color: 'white' }),
+          input: styles => ({ ...styles, color: 'white' }),
+          singleValue: (styles, { data }) => ({ ...styles, color: 'white' })
+
+        }}
       />
     </>
   );
