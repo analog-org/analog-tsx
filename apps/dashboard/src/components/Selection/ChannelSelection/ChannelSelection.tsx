@@ -14,25 +14,28 @@ const ChannelSelection: NextPage<Props> = ({ channels }) => {
   channelArray.forEach((c) => options.push({ value: c.id, label: c.name }));
 
   return (
-    <>
+    <div className="flex">
       <Select
+        placeholder="Select a channel"
         className="basic-single"
         classNamePrefix="select"
         isSearchable
         isClearable
         options={options}
         styles={{
-          control: (styles) => ({ ...styles, backgroundColor: "black"}),
+          control: (styles) => ({ ...styles, backgroundColor: "#36393e"}),
           option: (styles, { data, isDisabled, isFocused, isSelected }) => {
             return {
               ...styles,
-              backgroundColor: isDisabled
+              backgroundColor: 
+                isDisabled
                 ? null
                 : isSelected
-                ? '#00b0f4'
+                ? '#2f3136'
                 : isFocused
                 ? '#00b0f4'
-                : null,
+                : null
+              , 
                 
             color: isDisabled
               ? '#ccc'
@@ -50,7 +53,7 @@ const ChannelSelection: NextPage<Props> = ({ channels }) => {
 
         }}
       />
-    </>
+    </div>
   );
 };
 
