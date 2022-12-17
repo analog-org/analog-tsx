@@ -26,7 +26,8 @@ const Home: NextPageWithLayout = ({
       Guild Id: {guildid}
       <Builder botProfile={botProfile} rolesList={channels} />
       <div>
-        <ChannelSelection channels={channels} />                        
+        {selectedChannel}
+        <ChannelSelection channels={channels} onChange={(e) => setSelectedChannel(e.value)} selectedChannel={selectedChannel} />                        
       </div>
     </div>
   );
