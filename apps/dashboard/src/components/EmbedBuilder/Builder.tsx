@@ -46,10 +46,9 @@ import { type APIChannel } from "discord-api-types/v10";
 
 type Props = {
   botProfile: user;
-  rolesList: APIChannel[]
 };
 
-const Builder: NextPage<Props> = ({ botProfile, rolesList }) => {
+const Builder: NextPage<Props> = ({ botProfile }) => {
   const [embed, setEmbed] = useState({
     author: {
       name: "",
