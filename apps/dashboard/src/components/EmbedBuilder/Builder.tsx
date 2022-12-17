@@ -201,9 +201,7 @@ const Builder: NextPage<Props> = ({ botProfile, rolesList }) => {
           </DiscordMessage>
         </DiscordMessages>
       </div>
-      <div>
-        <ChannelSelection channels={rolesList}/>                        
-      </div>
+      
     </div>
   );
 };

@@ -3,19 +3,21 @@ import {
   InferGetServerSidePropsType,
   NextPage,
 } from "next";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { useRouter } from "next/router";
 import type { NextPageWithLayout } from "../../_app";
 import DashboardLayout from "../../../layouts/Dashboard";
 import Builder from "../../../components/EmbedBuilder/Builder";
 import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../../api/auth/[...nextauth]";
+import ChannelSelection from "../../../components/Selection/ChannelSelection/ChannelSelection";
 
 const Home: NextPageWithLayout = ({
   guilds,
   botProfile,
   channels,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const [selectedChannel, setSelectedChannel] = useState("");
   const router = useRouter();
   const { guildid } = router.query;
 
@@ -23,6 +25,9 @@ const Home: NextPageWithLayout = ({
     <div className="text-white">
       Guild Id: {guildid}
       <Builder botProfile={botProfile} rolesList={channels} />
+      <div>
+        <ChannelSelection channels={channels} />                        
+      </div>
     </div>
   );
 };

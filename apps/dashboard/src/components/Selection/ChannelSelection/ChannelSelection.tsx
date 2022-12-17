@@ -6,15 +6,19 @@ import Select from "react-select";
 
 type Props = {
   channels: APIChannel[];
+  onChange?: (e: string) => void;
 };
 
-const ChannelSelection: NextPage<Props> = ({ channels }) => {
+const ChannelSelection: NextPage<Props> = ({ channels, onChange }) => {
+  const [selectedChannel, setSelectedChannel] = useState("");
+
   const channelArray = Object.values(channels);
   const options = [{ value: "", label: "Select a channel" }];
   channelArray.forEach((c) => options.push({ value: c.id, label: c.name }));
 
   return (
     <div className="flex">
+      {selectedChannel}
       <Select
         placeholder="Select a channel"
         className="basic-single"
@@ -22,6 +26,7 @@ const ChannelSelection: NextPage<Props> = ({ channels }) => {
         isSearchable
         isClearable
         options={options}
+        onChange={(e) => setSelectedChannel(e.value)}
         styles={{
           control: (styles) => ({ ...styles, backgroundColor: "#36393e"}),
           option: (styles, { data, isDisabled, isFocused, isSelected }) => {
