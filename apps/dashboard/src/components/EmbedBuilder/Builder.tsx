@@ -47,27 +47,11 @@ import { type APIChannel } from "discord-api-types/v10";
 type Props = {
   botProfile: user;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  embed: { [key: string]: any };
 };
 
-const Builder: NextPage<Props> = ({ botProfile, onChange }) => {
-  const [embed, setEmbed] = useState({
-    author: {
-      name: "",
-      url: "",
-      icon_url: "",
-    },
-    title: "",
-    description: "",
-    color: "",
-    url: "",
-    thumbnail: {
-      url: ""
-    },
-    image: {
-      url: ""
-    },
-    
-  });
+const Builder: NextPage<Props> = ({ botProfile, onChange, embed }) => {
+  
 
   return (
     <div className="py-2 pr-4 flex flex-row gap-2">

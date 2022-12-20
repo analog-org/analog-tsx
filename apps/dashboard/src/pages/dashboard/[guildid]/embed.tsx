@@ -52,7 +52,7 @@ const Home: NextPageWithLayout = ({
   return (
     <div className="text-white">
       Guild Id: {guildid}
-      <Builder botProfile={botProfile} onChange={handleChange}/>
+      <Builder botProfile={botProfile} onChange={handleChange} embed={embed}/>
       <div>
         {selectedChannel}
         <ChannelSelection channels={channels} onChange={(e) => setSelectedChannel(e.value)} selectedChannel={selectedChannel} />                        
