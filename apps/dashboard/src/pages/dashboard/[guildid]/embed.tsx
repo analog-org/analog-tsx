@@ -17,14 +17,42 @@ const Home: NextPageWithLayout = ({
   botProfile,
   channels,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  
   const [selectedChannel, setSelectedChannel] = useState("");
+  const [embed, setEmbed] = useState({
+    author: {
+      name: "",
+      url: "",
+      icon_url: "",
+    },
+    title: "",
+    description: "",
+    color: "",
+    url: "",
+    thumbnail: {
+      url: ""
+    },
+    image: {
+      url: ""
+    },
+    
+  });
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setEmbed(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  }
+
   const router = useRouter();
   const { guildid } = router.query;
 
   return (
     <div className="text-white">
       Guild Id: {guildid}
-      <Builder botProfile={botProfile} />
+      <Builder botProfile={botProfile} onChange={handleChange}/>
       <div>
         {selectedChannel}
         <ChannelSelection channels={channels} onChange={(e) => setSelectedChannel(e.value)} selectedChannel={selectedChannel} />                        

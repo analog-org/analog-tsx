@@ -46,9 +46,10 @@ import { type APIChannel } from "discord-api-types/v10";
 
 type Props = {
   botProfile: user;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Builder: NextPage<Props> = ({ botProfile }) => {
+const Builder: NextPage<Props> = ({ botProfile, onChange }) => {
   const [embed, setEmbed] = useState({
     author: {
       name: "",
