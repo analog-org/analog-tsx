@@ -17,7 +17,6 @@ const Home: NextPageWithLayout = ({
   botProfile,
   channels,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  
   const [selectedChannel, setSelectedChannel] = useState("");
   const [embed, setEmbed] = useState({
     author: {
@@ -30,21 +29,12 @@ const Home: NextPageWithLayout = ({
     color: "",
     url: "",
     thumbnail: {
-      url: ""
+      url: "",
     },
     image: {
-      url: ""
+      url: "",
     },
-    
   });
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setEmbed(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  }
 
   const router = useRouter();
   const { guildid } = router.query;
@@ -52,17 +42,21 @@ const Home: NextPageWithLayout = ({
   return (
     <div className="text-white">
       Guild Id: {guildid}
-      <Builder botProfile={botProfile} onChange={handleChange} embed={embed}/>
+      <Builder botProfile={botProfile} />
       <div>
         {selectedChannel}
-        <ChannelSelection channels={channels} onChange={(e) => setSelectedChannel(e.value)} selectedChannel={selectedChannel} />                        
+        <ChannelSelection
+          channels={channels}
+          onChange={(e) => setSelectedChannel(e.value)}
+          selectedChannel={selectedChannel}
+        />
       </div>
     </div>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const guildId = context.query.guildid
+  const guildId = context.query.guildid;
 
   const session = await unstable_getServerSession(
     context.req,
@@ -93,15 +87,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       headers: {
         // @ts-ignore
         Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      method: 'GET',
-      
+      method: "GET",
     }
   );
 
   const channels = await channelsFetch.json();
-  console.log(guildId)
+  console.log(guildId);
   return {
     props: {
       guilds,
