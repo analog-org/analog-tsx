@@ -46,13 +46,33 @@ import { type APIChannel } from "discord-api-types/v10";
 
 type Props = {
   botProfile: user;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  embed: { [key: string]: any };
+  author: {
+    name: string;
+    updateName: (name: string) => void;
+    url: string;
+    updateUrl: (url: string) => void;
+    icon_url: string;
+    updateIconUrl: (icon_url: string) => void;
+  };
+  title: string;
+  updateTitle: (title: string) => void;
+  description: string;
+  updateDescription: (description: string) => void;
+  color: string;
+  updateColor: (color: string) => void;
+  url: string;
+  updateUrl: (url: string) => void;
+  thumbnail: {
+    url: string;
+    updateUrl: (url: string) => void;
+  };
+  image: {
+    url: string;
+    updateUrl: (url: string) => void;
+  };
 };
 
-const Builder: NextPage<Props> = ({ botProfile, onChange, embed }) => {
-  
-
+const Builder: NextPage<Props> = (props: Props) => {
   return (
     <div className="py-2 pr-4 flex flex-row gap-2">
       <InputContainer>
@@ -101,10 +121,8 @@ const Builder: NextPage<Props> = ({ botProfile, onChange, embed }) => {
                     Title
                   </label>
                   <textarea
-                    value={embed.title}
-                    onChange={(e) =>
-                      setEmbed({ ...embed, title: e.target.value })
-                    }
+                    value={props.title}
+                    onChange={(e) => props.updateTitle(e.target.value)}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
                 </div>
@@ -113,9 +131,9 @@ const Builder: NextPage<Props> = ({ botProfile, onChange, embed }) => {
                     Description
                   </label>
                   <textarea
-                    value={embed.description}
+                    value={props.description}
                     onChange={(e) =>
-                      setEmbed({ ...embed, description: e.target.value })
+                      props.updateDescription(e.target.value)
                     }
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
@@ -126,9 +144,9 @@ const Builder: NextPage<Props> = ({ botProfile, onChange, embed }) => {
                       URL
                     </label>
                     <input
-                      value={embed.url}
+                      value={props.url}
                       onChange={(e) =>
-                        setEmbed({ ...embed, url: e.target.value })
+                        props.updateUrl(e.target.value)
                       }
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
@@ -140,7 +158,7 @@ const Builder: NextPage<Props> = ({ botProfile, onChange, embed }) => {
                     <Dropdown
                       label={
                         <input
-                          value={embed.color}
+                          value={props.color}
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         />
                       }
@@ -150,9 +168,9 @@ const Builder: NextPage<Props> = ({ botProfile, onChange, embed }) => {
                       <Dropdown.Item>
                         <Colorful
                           disableAlpha={true}
-                          color={embed.color}
+                          color={props.color}
                           onChange={(colors) =>
-                            setEmbed({ ...embed, color: colors.hex })
+                            props.updateColor(colors.hex)
                           }
                         />
                       </Dropdown.Item>
@@ -167,25 +185,24 @@ const Builder: NextPage<Props> = ({ botProfile, onChange, embed }) => {
       <div className="rounded-3xl">
         <DiscordMessages className="rounded-2xl">
           <DiscordMessage
-            author={`${botProfile.username}`}
-            avatar={`https://cdn.discordapp.com/avatars/${botProfile.id}/${botProfile.avatar}.png`}
+            author={`${props.botProfile.username}`}
+            avatar={`https://cdn.discordapp.com/avatars/${props.botProfile.id}/${props.botProfile.avatar}.png`}
             bot={true}
             verified={true}
           >
             <DiscordEmbed
               slot="embeds"
-              embedTitle={embed.title}
-              color={embed.color}
-              url={embed.url}
+              embedTitle={props.title}
+              color={props.color}
+              url={props.url}
             >
               <DiscordEmbedDescription slot="description">
-                {embed.description}
+                {props.description}
               </DiscordEmbedDescription>
             </DiscordEmbed>
           </DiscordMessage>
         </DiscordMessages>
       </div>
-      
     </div>
   );
 };
