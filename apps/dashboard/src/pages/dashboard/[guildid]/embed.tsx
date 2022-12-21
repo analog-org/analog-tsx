@@ -12,13 +12,32 @@ import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../../api/auth/[...nextauth]";
 import ChannelSelection from "../../../components/Selection/ChannelSelection/ChannelSelection";
 
+interface EmbedState {
+  author: {
+    name: string;
+    url: string;
+    icon_url: string;
+  };
+  title: string;
+  description: string;
+  color: string;
+  url: string;
+  thumbnail: {
+    url: string;
+  };
+  image: {
+    url: string;
+  };
+}
+
 const Home: NextPageWithLayout = ({
   guilds,
   botProfile,
   channels,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  
   const [selectedChannel, setSelectedChannel] = useState("");
-  const [embed, setEmbed] = useState({
+  const [embed, setEmbed] = useState<EmbedState>({
     author: {
       name: "",
       url: "",
@@ -41,8 +60,48 @@ const Home: NextPageWithLayout = ({
 
   return (
     <div className="text-white">
-      Guild Id: {guildid}
-      <Builder botProfile={botProfile} />
+      Guild Id: {guildid} {embed.title}
+      
+      <Builder
+        botProfile={botProfile}
+        author={{
+          name: embed.author.name,
+          updateName(name) {
+            setEmbed({ ...embed, author: { ...embed.author, name } });
+          },
+          url: embed.author.url,
+          updateUrl(url) {
+            setEmbed({ ...embed, author: { ...embed.author, url } });
+          },
+          icon_url: embed.author.icon_url,
+          updateIconUrl(icon_url) {
+            setEmbed({ ...embed, author: { ...embed.author, icon_url } });
+          },
+        }}
+        title={embed.title}
+        updateTitle={(title) => setEmbed({ ...embed, title })}
+        description={embed.description}
+        updateDescription={(description) =>
+          setEmbed({ ...embed, description })
+        }
+        color={embed.color}
+        updateColor={(color) => setEmbed({ ...embed, color })}
+        url={embed.url}
+        updateUrl={(url) => setEmbed({ ...embed, url })}
+        thumbnail={{
+          url: embed.thumbnail.url,
+          updateUrl(url) {
+            setEmbed({ ...embed, thumbnail: { ...embed.thumbnail, url } });
+          },
+        }}
+        image={{
+          url: embed.image.url,
+          updateUrl(url) {
+            setEmbed({ ...embed, image: { ...embed.image, url } });
+          },
+        }}
+
+      />
       <div>
         {selectedChannel}
         <ChannelSelection
