@@ -11,6 +11,8 @@ import Builder from "../../../components/EmbedBuilder/Builder";
 import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../../api/auth/[...nextauth]";
 import ChannelSelection from "../../../components/Selection/ChannelSelection/ChannelSelection";
+import { Button } from "flowbite-react";
+import { useSession } from "next-auth/react";
 
 interface EmbedState {
   author: {
@@ -35,7 +37,7 @@ const Home: NextPageWithLayout = ({
   botProfile,
   channels,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  
+
   const [selectedChannel, setSelectedChannel] = useState("");
   const [embed, setEmbed] = useState<EmbedState>({
     author: {
@@ -58,9 +60,30 @@ const Home: NextPageWithLayout = ({
   const router = useRouter();
   const { guildid } = router.query;
 
+  const { data: session } = useSession();
+
+  const sendEmbed = async () => {
+    const res = await fetch(`https://discord.com/api/v10/channels/${selectedChannel}/messages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bot OTI2NjU0MjY3NzE1MDkyNTIw.GOiSWk.dMMbKn0TQLmPACrE7bZUF7RZ5g2sKo61IPq4Ig`,
+      },
+      body: JSON.stringify({
+        embed: embed,
+      }),
+    
+    })
+    const data = await res.json();
+    console.log(data);
+
+  };
+
+  console.log(`https://discord.com/api/v10/guilds/${guildid}/channels/${selectedChannel}/messages`)
+
   return (
     <div className="text-white">
-      Guild Id: {guildid} {embed.title}
+      Guild Id: {guildid} 
       
       <Builder
         botProfile={botProfile}
@@ -110,6 +133,9 @@ const Home: NextPageWithLayout = ({
           selectedChannel={selectedChannel}
         />
       </div>
+      <div>
+        <Button onClick={sendEmbed}>Send Embed</Button>
+      </div>
     </div>
   );
 };
@@ -147,8 +173,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         // @ts-ignore
         Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
         "Content-Type": "application/json",
+      
       },
       method: "GET",
+
     }
   );
 
