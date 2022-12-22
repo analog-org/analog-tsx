@@ -1,7 +1,9 @@
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { embed, channel } = req.body
+  const { embed } = req.body
+
+  const { channel } = req.query
 
   if (!embed) {
     return res.status(400).json({ error: 'Missing embed' })
@@ -14,14 +16,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
       },
       body: JSON.stringify({
-        embed: embed,
+        embeds: [embed],
       }),
     
     })
 
   const disReq = await disRes.json()
 
-  res.status(200).json(disReq);
+  res.status(200).json({disReq, embed, channel});
+  res.status(200).json(embed);
+  res.status(200).json(channel);
 }
 
 
