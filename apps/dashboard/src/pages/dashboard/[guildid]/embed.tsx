@@ -30,6 +30,16 @@ interface EmbedState {
   image: {
     url: string;
   };
+  footer: {
+    text: string;
+    icon_url: string;
+  };
+  timestamp: string;
+  fields: {
+    name: string;
+    value: string;
+  }[];
+  
 }
 
 const Home: NextPageWithLayout = ({
@@ -46,7 +56,7 @@ const Home: NextPageWithLayout = ({
     },
     title: "",
     description: "",
-    color: "",
+    color: 13440277,
     url: "",
     thumbnail: {
       url: "",
@@ -54,7 +64,13 @@ const Home: NextPageWithLayout = ({
     image: {
       url: "",
     },
-
+    footer: {
+      text: "",
+      icon_url: "",
+    },
+    timestamp: "",
+    fields: [],
+    
 
   });
 
@@ -65,7 +81,7 @@ const Home: NextPageWithLayout = ({
 
   const sendEmbed = async () => {
     try {
-      const res = await fetch("/api/discord/postEmbed", {
+      const res = await fetch(`/api/discord/postEmbed?channel=${selectedChannel}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
