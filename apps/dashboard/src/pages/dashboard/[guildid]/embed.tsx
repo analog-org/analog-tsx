@@ -37,7 +37,6 @@ const Home: NextPageWithLayout = ({
   botProfile,
   channels,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-
   const [selectedChannel, setSelectedChannel] = useState("");
   const [embed, setEmbed] = useState<EmbedState>({
     author: {
@@ -55,6 +54,8 @@ const Home: NextPageWithLayout = ({
     image: {
       url: "",
     },
+
+
   });
 
   const router = useRouter();
@@ -63,28 +64,32 @@ const Home: NextPageWithLayout = ({
   const { data: session } = useSession();
 
   const sendEmbed = async () => {
-    const res = await fetch(`https://discord.com/api/v10/channels/${selectedChannel}/messages`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bot OTI2NjU0MjY3NzE1MDkyNTIw.GOiSWk.dMMbKn0TQLmPACrE7bZUF7RZ5g2sKo61IPq4Ig`,
-      },
-      body: JSON.stringify({
-        embed: embed,
-      }),
-    
-    })
-    const data = await res.json();
-    console.log(data);
+    try {
+      const res = await fetch("/api/discord/postEmbed", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          embed,
+          selectedChannel,
+        }),
+      });
 
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  console.log(`https://discord.com/api/v10/guilds/${guildid}/channels/${selectedChannel}/messages`)
+  console.log(
+    `https://discord.com/api/v10/guilds/${guildid}/channels/${selectedChannel}/messages`
+  );
 
   return (
     <div className="text-white">
-      Guild Id: {guildid} 
-      
+      Guild Id: {guildid}
       <Builder
         botProfile={botProfile}
         author={{
@@ -104,9 +109,7 @@ const Home: NextPageWithLayout = ({
         title={embed.title}
         updateTitle={(title) => setEmbed({ ...embed, title })}
         description={embed.description}
-        updateDescription={(description) =>
-          setEmbed({ ...embed, description })
-        }
+        updateDescription={(description) => setEmbed({ ...embed, description })}
         color={embed.color}
         updateColor={(color) => setEmbed({ ...embed, color })}
         url={embed.url}
@@ -123,7 +126,6 @@ const Home: NextPageWithLayout = ({
             setEmbed({ ...embed, image: { ...embed.image, url } });
           },
         }}
-
       />
       <div>
         {selectedChannel}
@@ -173,10 +175,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         // @ts-ignore
         Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
         "Content-Type": "application/json",
-      
       },
       method: "GET",
-
     }
   );
 

@@ -70,6 +70,24 @@ type Props = {
     url: string;
     updateUrl: (url: string) => void;
   };
+  footer: {
+    text: string;
+    updateText: (text: string) => void;
+    icon_url: string;
+    updateIconUrl: (icon_url: string) => void;
+  }
+  timestamp: string;
+  updateTimestamp: (timestamp: string) => void;
+  fields: {
+    name: string;
+    updateName: (name: string) => void;
+    value: string;
+    updateValue: (value: string) => void;
+    inline: boolean;
+    updateInline: (inline: boolean) => void;
+  }[];
+  addField: () => void;
+  removeField: (index: number) => void;
 };
 
 const Builder: NextPage<Props> = (props: Props) => {
