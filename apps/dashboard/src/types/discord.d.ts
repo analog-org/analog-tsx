@@ -23,3 +23,5 @@ interface user {
   premium_type: Number | null,
   public_flags: Number | null,
 }
+
+// This isn't really needed, use discord-api-types instead 
