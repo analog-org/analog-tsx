@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Avatar, Dropdown, Sidebar } from "flowbite-react";
 import { authOptions } from "../pages/api/auth/[...nextauth]";
 import { useSession, signIn, signOut } from "next-auth/react";
-import getPages from "../utils/getPages";
 
 const SideBar:NextPage = ({pages}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
