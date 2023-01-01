@@ -5,7 +5,7 @@ import { Avatar, Dropdown, Sidebar } from "flowbite-react";
 import { authOptions } from "../pages/api/auth/[...nextauth]";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-const SideBar:NextPage = ({pages}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const SideBar:NextPage = () => {
   return (
     <div className="w-fit">
       <Sidebar aria-label="Sidebar with logo branding example" >
@@ -28,15 +28,4 @@ const SideBar:NextPage = ({pages}: InferGetServerSidePropsType<typeof getServerS
 };
 
 export default SideBar;
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  
-  const pages = getPages('dashboard');
-  console.log(pages)
-  return {
-    props: {
-      pages
-    },
-  };
-};
 
