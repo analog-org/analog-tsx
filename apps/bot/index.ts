@@ -179,7 +179,7 @@ client.on(
 );
 
 //This is what logs the bot in
-client.login(process.env.TOKEN);
+client.login(process.env.DISCORD_BOT_TOKEN);
 client.on("ready", async () => {
   console.log(
     `The bot is up! Logged in as ${client.user?.tag} at ${client.readyAt}`
