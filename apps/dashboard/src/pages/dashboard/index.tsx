@@ -13,6 +13,7 @@ import perms from "../../utils/bitfield";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import GuildContainer from "../../components/Guild/GuildContainer";
 import GuildCard from "../../components/Guild/GuildCard";
+import NavBar from "../../components/Navbar";
 
 const Home: NextPage = ({
   guilds,
@@ -22,6 +23,7 @@ const Home: NextPage = ({
   if (session) {
     return (
       <div>
+        <NavBar />
         <GuildContainer>
           {guilds.map((gld: guild) => {
             const serverPerms = perms(gld.permissions);
