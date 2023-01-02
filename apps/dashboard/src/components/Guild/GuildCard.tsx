@@ -23,22 +23,28 @@ const GuildCard: NextPage<Props> = ({
   if (guildSetup === true) {
     return (
       <Link href={`/dashboard/${guildId}`}>
-        <div className="h-20 flex gap-4 flex-col w-full bg-black rounded-xl  hover:-translate-y-1 hover:scale-110 border-green-600 border-4">
-          <div className="py-2 pl-2 relative items-center justify-end overflow-hidden w-full h-full">
+        <div className="h-56 flex gap-4 flex-col w-72 sm:w-80 bg-black rounded-xl relative">
+          <div className="py-2 pl-2 relative items-center justify-end overflow-hidden w-full h-full rounded-xl">
             <GuildIconLG
               guildIcon={guildIcon}
               guildId={guildId}
               userDiscriminator={userDiscriminator}
             />
           </div>
-          <GuildIcon
-            guildIcon={guildIcon}
-            guildId={guildId}
-            userDiscriminator={userDiscriminator}
-          />
-          <h1 className="text-white font-helvetica font-bold text-3xl pt-4">
-            {guildName}
-          </h1>
+          <span className="absolute top-9 left-28 items-center justify-center">
+            <GuildIcon
+              guildIcon={guildIcon}
+              guildId={guildId}
+              userDiscriminator={userDiscriminator}
+            />
+          </span>
+          <div className="flex flex-row justify-start">
+            <h1 className="text-white flex-none font-helvetica font-bold text-xl px-2 pb-2">
+              {guildName}
+            </h1>
+            <div className="flex-none">
+            <Button href={`/dashboard/${guildId}`}>Manage</Button></div>
+          </div>
         </div>
       </Link>
     );
