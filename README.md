@@ -1,73 +1,97 @@
-# Turborepo starter
+<p align="center">
+  <a href="#">
+    <img alt="Nyx" src="https://cdn.discordapp.com/attachments/762378948566319136/1004125412261101650/analog_ts_logo.svg"/>
+  </a>
+</p>
 
-This is an official npm starter turborepo.
+<div align="center">
+  
+  This is a typescript template for Discord Bots built in DiscordJS.
+  
+  <br />
+</div>
+<div align="center">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white">
+  <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white">
+  <img src="https://img.shields.io/badge/Turbo-Repo-blueviolet.svg?style=for-the-badge&logo=turborepo&labelColor=000000&logoWidth=20&logoColor=white">
+</div>
+<div align="center">
+  <img alt="npm" src="https://img.shields.io/npm/v/discord.js?label=D.JS&style=flat-square">
+  <img alt="npm" src="https://img.shields.io/npm/v/next?label=next&style=flat-square">
+  <img alt="npm" src="https://img.shields.io/npm/v/next-auth?label=next-auth&style=flat-square">
+  <img alt="npm" src="https://img.shields.io/npm/v/turbo?label=Turbo&style=flat-square">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/analog-org/analog-tsx?style=flat-square">
+  <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/analog-org/analog-tsx?style=flat-square">
+  <img alt="GitHub issues" src="https://img.shields.io/github/issues/analog-org/analog-tsx?style=flat-square">
+</div>
 
-## What's inside?
+# Discord Bot Features
+- Discord.JS v14
+- Typescript
+- Uses functions and ESM modules instead of classes
+- [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=BossDaily.analog-ts-snippets&ssr=false)
+- Command Handler
+- Context Menu Handler
+- Event Handler
+- Button handler
+- Modal handler
+- Select Menu Handler
 
-This turborepo uses [npm](https://www.npmjs.com/) as a package manager. It includes the following packages/apps:
 
-### Apps and Packages
+# Dashboard features
+- NextJS
+- Typescript
+- [Authjs](https://authjs.dev/) - For easy authentication
+- TailwindCSS
+- 
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
+# Getting Started 
+## Initial Setup
+```sh
+git clone https://github.com/analog-org/analog-tsx.git
+cd analog-tsx
+npm i
 ```
-cd my-turborepo
-npm run build
+## ENV Variables
+
+- Copy `.env.example` and paste it in the main directory
+- Rename it to just `.env`
+- Fill in the values for the environment variables
+
+
+1. Create an APP on [Discord Developer Portal](https://discord.com/developers/applications)
+2. Create a bot user and [copy the token](https://discordjs.guide/preparations/setting-up-a-bot-application.html#your-bot-s-token)
+3. Put the token you copied in the `DISCORD_BOT_TOKEN` variable in the `.env` file
+4. To get the `DISCORD_CLIENT_ID` and `NEXT_PUBLIC_DISCORD_CLIENT_ID` values, go to the OAuth2 tab in your application and copy the `Client ID` value
+![image](https://media.discordapp.net/attachments/1004769215347175484/1059533910599540767/image.png)
+5. To get the `DISCORD_CLIENT_SECRET` value, go to the OAuth2 tab in your application and copy the `Client Secret` value (or reset the secret and copy the new one)
+![image](https://cdn.discordapp.com/attachments/1004769215347175484/1059534856817745930/image.png)
+6. For `NEXTAUTH_SECRET` you can generate a random 32 character string by doing `openssl rand -base64 32` or at [generate.plus](https://generate.plus/en/base64)
+7. `NEXTAUTH_URL` is the URL of your website (e.g. `http://localhost:3000`, `https://analog.org`, `https://panel.bossdaily.me`)
+
+### Your .env file should endup looking like this
+```js title=".env"
+DISCORD_CLIENT_ID="61266727282091783"
+DISCORD_BOT_TOKEN="OTI2Nnrjh9ia03ndNTIw.GjSdq1.bh2983-34yhtg9wasn9iy34ifgkaopneianwh"
+NEXT_PUBLIC_DISCORD_CLIENT_ID="61266727282091783"
+DISCORD_CLIENT_SECRET="uqerhgeas2HxewZQfdggK9gl-KLcnbgja"
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="34gaw9jmig04jma0hi-mwaehawh-KLcnbgja"
 ```
+:::tip ENV Variables are global
+You can use any ENV variables you add here anywhere in the project
+:::
+## Starting The Bot
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
+To start the bot & the dashboard you have to be in the root directory of the project and run the following command  
+```bash
+npm start
 ```
-cd my-turborepo
+### Developer mode
+You can do
+```bash
 npm run dev
 ```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+To get into developer mode, meaning the bot or the dashboard restart & recompile on code changes
