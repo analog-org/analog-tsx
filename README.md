@@ -17,6 +17,7 @@
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white">
   <img src="https://img.shields.io/badge/Turbo-Repo-blueviolet.svg?style=for-the-badge&logo=turborepo&labelColor=000000&logoWidth=20&logoColor=white">
 </div>
+
 <div align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/discord.js?label=D.JS&style=flat-square">
   <img alt="npm" src="https://img.shields.io/npm/v/next?label=next&style=flat-square">
@@ -25,6 +26,10 @@
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/analog-org/analog-tsx?style=flat-square">
   <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/analog-org/analog-tsx?style=flat-square">
   <img alt="GitHub issues" src="https://img.shields.io/github/issues/analog-org/analog-tsx?style=flat-square">
+</div>
+
+<div align="center">
+  <img alt="Discord" src="https://img.shields.io/discord/762378948084498482?label=Discord&logo=discord&style=for-the-badge">
 </div>
 
 # Discord Bot Features
@@ -45,7 +50,6 @@
 - Typescript
 - [Authjs](https://authjs.dev/) - For easy authentication
 - TailwindCSS
-- 
 
 # Getting Started 
 ## Initial Setup
