@@ -8,14 +8,14 @@ import {
 import React from "react";
 import { authOptions } from "./api/auth/[...nextauth]";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { unstable_getServerSession } from "next-auth/next";
+import { getServerSession } from "next-auth/next";
 import perms from "../utils/bitfield";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import GuildContainer from "../components/Guild/GuildContainer";
 import GuildCard from "../components/Guild/GuildCard";
 import NavBar from "../components/Navbar";
 
-const index: NextPage = () => {
+export default function Page() {
   const { data: session } = useSession();
   if (session) {
     return (
@@ -34,4 +34,3 @@ const index: NextPage = () => {
   }
 };
 
-export default index;

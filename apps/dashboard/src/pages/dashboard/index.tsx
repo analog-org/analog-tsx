@@ -8,7 +8,7 @@ import {
 import React from "react";
 import { authOptions } from "../api/auth/[...nextauth]";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { unstable_getServerSession } from "next-auth/next";
+import { getServerSession } from "next-auth/next";
 import perms from "../../utils/bitfield";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import GuildContainer from "../../components/Guild/GuildContainer";
@@ -51,7 +51,7 @@ const Home: NextPage = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const session = await unstable_getServerSession(
+  const session = await getServerSession(
     context.req,
     context.res,
     authOptions
