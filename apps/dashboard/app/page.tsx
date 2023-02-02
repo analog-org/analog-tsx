@@ -13,24 +13,24 @@ import perms from "../src/utils/bitfield";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import GuildContainer from "../src/components/Guild/GuildContainer";
 import GuildCard from "../src/components/Guild/GuildCard";
-import NavBar from "../src/components/Navbar";
+import NavBar from "./Navbar";
 
 export default function Page() {
-  const { data: session } = useSession();
-  if (session) {
+  /* const { data: session } = useSession();
+  if (session) { */
     return (
       <div className="bg-gray-800">
-        
-        {"w you're signed in"}
+        <NavBar />
+        fortnite
       </div>
     );
-  } else {
+  /* } else {
     return (
       <div>
-        
+        <NavBar />
         {"l you're not signed in"}
       </div>
     );
-  }
+  } */
 };
 
