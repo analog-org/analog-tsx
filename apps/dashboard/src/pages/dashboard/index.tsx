@@ -13,7 +13,7 @@ import perms from "../../utils/bitfield";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import GuildContainer from "../../components/Guild/GuildContainer";
 import GuildCard from "../../components/Guild/GuildCard";
-import NavBar from "../../components/Navbar";
+import NavBar from "../../../app/Navbar";
 
 const Home: NextPage = ({
   guilds,

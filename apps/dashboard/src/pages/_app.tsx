@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import { Flowbite } from "flowbite-react";
 import { customtheme as theme } from "../components/theme";
-import Navbar from "../components/Navbar";
+import Navbar from "../../app/Navbar";
 import { NextPage } from "next";
 
 
