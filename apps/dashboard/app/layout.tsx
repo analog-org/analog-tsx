@@ -1,4 +1,5 @@
 import Provider from "./provider";
+import './globals.css';
 
 export default function RootLayout({
   // Layouts must accept a children prop.
