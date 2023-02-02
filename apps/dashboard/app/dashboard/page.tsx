@@ -15,11 +15,32 @@ import GuildContainer from "../../src/components/Guild/GuildContainer";
 import GuildCard from "../../src/components/Guild/GuildCard";
 import NavBar from "../Navbar";
 
-const Home: NextPage = ({
-  guilds,
-  botGuilds,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { data: session } = useSession();
+export default async function Home() {
+
+  const session = await getServerSession(context.req, context.res, authOptions);
+
+  const guildFetch = await fetch(
+    `https://discord.com/api/v10/users/@me/guilds`,
+    {
+      headers: {
+        // @ts-ignore
+        Authorization: `Bearer ${session?.accessToken}`,
+      },
+    }
+  );
+  const guilds = await guildFetch.json();
+  
+  const botGuildsFetch = await fetch(
+    `https://discord.com/api/v10/users/@me/guilds`,
+    {
+      headers: {
+        // @ts-ignore
+        Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
+      },
+    }
+  );
+
+  const botGuilds = await botGuildsFetch.json();
   if (session) {
     return (
       <div>
@@ -34,7 +55,9 @@ const Home: NextPage = ({
                   guildId={gld.id}
                   userDiscriminator={session.discordUser.discriminator}
                   guildName={gld.name}
-                  guildSetup={botGuilds.some((botGuild) => botGuild.id === gld.id)}
+                  guildSetup={botGuilds.some(
+                    (botGuild) => botGuild.id === gld.id
+                  )}
                 />
               );
             }
@@ -48,42 +71,4 @@ const Home: NextPage = ({
       <h1>Not signed in</h1>
     </div>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const session = await getServerSession(
-    context.req,
-    context.res,
-    authOptions
-  );
-  const guildFetch = await fetch(
-    `https://discord.com/api/v10/users/@me/guilds`,
-    {
-      headers: {
-        // @ts-ignore
-        Authorization: `Bearer ${session?.accessToken}`,
-      },
-    }
-  );
-  const guilds = await guildFetch.json();
-  const botGuildsFetch = await fetch(
-    `https://discord.com/api/v10/users/@me/guilds`,
-    {
-      headers: {
-        // @ts-ignore
-        Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
-      },
-    }
-  );
-  const botGuilds = await botGuildsFetch.json();
-  
-  return {
-    props: {
-      guilds,
-      botGuilds,
-    },
-  };
-};
-
-export default Home;
-
+}
