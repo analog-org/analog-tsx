@@ -6,14 +6,14 @@ import {
   NextPage,
 } from "next";
 import React from "react";
-import { authOptions } from "../api/auth/[...nextauth]";
+import { authOptions } from "../../src/pages/api/auth/[...nextauth]";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { getServerSession } from "next-auth/next";
-import perms from "../../utils/bitfield";
+import perms from "../../src/utils/bitfield";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
-import GuildContainer from "../../components/Guild/GuildContainer";
-import GuildCard from "../../components/Guild/GuildCard";
-import NavBar from "../../../app/Navbar";
+import GuildContainer from "../../src/components/Guild/GuildContainer";
+import GuildCard from "../../src/components/Guild/GuildCard";
+import NavBar from "../Navbar";
 
 const Home: NextPage = ({
   guilds,

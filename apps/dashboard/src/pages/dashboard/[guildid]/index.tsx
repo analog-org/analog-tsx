@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { ReactNode } from "react";
 import { useRouter } from "next/router";
 import type { NextPageWithLayout } from '../../_app'
-import DashboardLayout from "../../../layouts/Dashboard";
+import DashboardLayout from "../../../../app/dashboard/layout";
 
  const Home: NextPageWithLayout = () => {
   const router = useRouter();

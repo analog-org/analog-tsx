@@ -1,6 +1,6 @@
-import MainFooter from "../components/Footer";
-import NavBar from "../../app/Navbar";
-import SideBar from "../components/Sidebar";
+import MainFooter from "../../src/components/Footer";
+import NavBar from "../Navbar";
+import SideBar from "../../src/components/Sidebar";
 import { ReactNode } from "react";
 
 type LayoutProps = {
