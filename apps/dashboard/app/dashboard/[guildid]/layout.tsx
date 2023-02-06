@@ -1,5 +1,5 @@
 import MainFooter from "./Footer";
-import NavBar from "../Navbar";
+import NavBar from "../../Navbar";
 import SideBar from "./Sidebar";
 import { ReactNode } from "react";
 

@@ -46,6 +46,7 @@ export default async function Home() {
     return (
       <div>
         <GuildContainer>
+          <NavBar />
           {guilds.map((gld: guild) => {
             const serverPerms = perms(gld.permissions);
             if (serverPerms.includes("MANAGE_GUILD")) {
