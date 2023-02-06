@@ -1,11 +1,13 @@
+"use client"
+
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
 import { ReactNode } from "react";
 import Image from "next/image";
 import { Avatar, Dropdown, Sidebar } from "flowbite-react";
-import { authOptions } from "../pages/api/auth/[...nextauth]";
+import { authOptions } from "../../src/pages/api/auth/[...nextauth]";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-const SideBar:NextPage = () => {
+export default function SideBar() {
   return (
     <div className="w-fit">
       <Sidebar aria-label="Sidebar with logo branding example" >
@@ -27,5 +29,4 @@ const SideBar:NextPage = () => {
   );
 };
 
-export default SideBar;
 
