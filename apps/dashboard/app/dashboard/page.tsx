@@ -11,13 +11,14 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { getServerSession } from "next-auth/next";
 import perms from "../../src/utils/bitfield";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
-import GuildContainer from "../../src/components/Guild/GuildContainer";
-import GuildCard from "../../src/components/Guild/GuildCard";
+import GuildContainer from "./(Guild)/GuildContainer";
+import GuildCard from "./(Guild)/GuildCard";
 import NavBar from "../Navbar";
 
 export default async function Home() {
 
-  const session = await getServerSession(context.req, context.res, authOptions);
+  const session = await getServerSession(authOptions);
+
 
   const guildFetch = await fetch(
     `https://discord.com/api/v10/users/@me/guilds`,
@@ -44,7 +45,6 @@ export default async function Home() {
   if (session) {
     return (
       <div>
-        <NavBar />
         <GuildContainer>
           {guilds.map((gld: guild) => {
             const serverPerms = perms(gld.permissions);
