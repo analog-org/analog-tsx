@@ -1,3 +1,5 @@
+"use client"
+
 import { NextPage } from "next";
 import Image from "next/image";
 
@@ -7,11 +9,11 @@ type Props = {
   userDiscriminator: number;
 };
 
-const GuildIcon: NextPage<Props> = ({
+export default function GuildIcon({
   guildIcon,
   guildId,
   userDiscriminator,
-}) => {
+}:Props) {
   return (
     <>
       {guildIcon ? (
@@ -36,5 +38,3 @@ const GuildIcon: NextPage<Props> = ({
     </>
   );
 };
-
-export default GuildIcon;
