@@ -11,8 +11,8 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { getServerSession } from "next-auth/next";
 import perms from "../src/utils/bitfield";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
-import GuildContainer from "../src/components/Guild/GuildContainer";
-import GuildCard from "../src/components/Guild/GuildCard";
+import GuildContainer from "./dashboard/(Guild)/GuildContainer";
+import GuildCard from "./dashboard/(Guild)/GuildCard";
 import NavBar from "./Navbar";
 
 export default function Page() {
