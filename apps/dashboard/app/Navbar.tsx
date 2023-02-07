@@ -36,10 +36,11 @@ export default function Component() {
               label={
                 <Image
                   src={session.discordUser.image_url}
-                  className="mr-5 h-6 sm:h-9 rounded-full"
+                  className="mr-5 rounded-full"
                   alt="Flowbite Logo"
                   width={52}
                   height={52}
+
                 />
               }
               placement="bottom-end"
