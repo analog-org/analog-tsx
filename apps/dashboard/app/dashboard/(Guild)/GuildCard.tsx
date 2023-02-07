@@ -1,3 +1,5 @@
+"use client"
+
 import { NextPage } from "next";
 import { ReactNode } from "react";
 import GuildIcon from "./GuildIcon";
@@ -13,13 +15,13 @@ type Props = {
   guildSetup: Boolean;
 };
 
-const GuildCard: NextPage<Props> = ({
+export default function GuildCard({
   guildIcon,
   guildId,
   userDiscriminator,
   guildName,
   guildSetup,
-}) => {
+}: Props) {
   if (guildSetup === true) {
     return (
       <Link href={`/dashboard/${guildId}`}>
@@ -80,5 +82,3 @@ const GuildCard: NextPage<Props> = ({
     );
   }
 };
-
-export default GuildCard;

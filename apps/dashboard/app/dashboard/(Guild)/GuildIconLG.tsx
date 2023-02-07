@@ -1,3 +1,5 @@
+"use client"
+
 import { NextPage } from "next";
 import Image from "next/image";
 
@@ -7,19 +9,18 @@ type Props = {
   userDiscriminator: number;
 };
 
-const GuildIcon: NextPage<Props> = ({
+export default function GuildIconLG ({
   guildIcon,
   guildId,
   userDiscriminator,
-}) => {
+}: Props) {
   return (
     <>
       {guildIcon ? (
         <Image
           src={`https://cdn.discordapp.com/icons/${guildId}/${guildIcon}.png`}
-          width={96}
-          height={96}
-          className="rounded-full"
+          layout="fill"
+          className="blur-md rounded-xl"
           alt="Guild Icon"
         />
       ) : (
@@ -27,14 +28,11 @@ const GuildIcon: NextPage<Props> = ({
           src={`https://cdn.discordapp.com/embed/avatars/${
             userDiscriminator % 5
           }.png`}
-          width={96}
-          height={96}
-          className="rounded-full"
+          layout="fill"
+          className="blur-md"
           alt="Default Guild Icon"
         />
       )}
     </>
   );
 };
-
-export default GuildIcon;

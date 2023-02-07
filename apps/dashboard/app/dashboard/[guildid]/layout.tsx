@@ -1,13 +1,13 @@
-import MainFooter from "../components/Footer";
-import NavBar from "../components/Navbar";
-import SideBar from "../components/Sidebar";
+import MainFooter from "./Footer";
+import NavBar from "../../Navbar";
+import SideBar from "./Sidebar";
 import { ReactNode } from "react";
 
 type LayoutProps = {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-const DashboardLayout = ({ children }: LayoutProps) => {
+export default function DashboardLayout ({ children }: LayoutProps){
   return (
     <div className="bg-gray-800">
       <NavBar />
@@ -19,5 +19,3 @@ const DashboardLayout = ({ children }: LayoutProps) => {
     </div>
   );
 };
-
-export default DashboardLayout;

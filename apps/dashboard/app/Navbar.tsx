@@ -1,15 +1,17 @@
+"use client"
+
 import { NextPage } from "next";
 import { ReactNode } from "react";
 import Image from "next/image";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
-import { authOptions } from "../pages/api/auth/[...nextauth]";
+import { authOptions } from "../src/pages/api/auth/[...nextauth]";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 type Props = {
   children: ReactNode;
 };
 
-const NavBar: NextPage = () => {
+export default function Component() {
   const { data: session } = useSession();
   if (session) {
     return (
@@ -34,10 +36,11 @@ const NavBar: NextPage = () => {
               label={
                 <Image
                   src={session.discordUser.image_url}
-                  className="mr-5 h-6 sm:h-9 rounded-full"
+                  className="mr-5 rounded-full"
                   alt="Flowbite Logo"
                   width={52}
                   height={52}
+
                 />
               }
               placement="bottom-end"
@@ -107,5 +110,3 @@ const NavBar: NextPage = () => {
     );
   }
 };
-
-export default NavBar;

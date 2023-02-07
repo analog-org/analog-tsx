@@ -1,8 +1,8 @@
-import { unstable_getServerSession } from "next-auth/next";
+import { getServerSession } from "next-auth/next";
 import { authOptions } from "./auth/[...nextauth]";
 
 const restricted = async  (req, res) => {
-  const session = await unstable_getServerSession(req, res, authOptions);
+  const session = await getServerSession(req, res, authOptions);
 
   if (session) {
     res.send({
