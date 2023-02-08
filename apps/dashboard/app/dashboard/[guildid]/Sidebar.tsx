@@ -21,7 +21,6 @@ export default function SideBar() {
         <Sidebar.Items>
           <Sidebar.ItemGroup>
             <Sidebar.Item href="#">Dashboard</Sidebar.Item>
-            <Sidebar.Item href="/embed">Embed Builder</Sidebar.Item>
           </Sidebar.ItemGroup>
         </Sidebar.Items>
       </Sidebar>
