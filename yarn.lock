@@ -10,10 +10,10 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@apollo/client@^3.7.1":
-  version "3.7.1"
-  resolved "https://registry.npmjs.org/@apollo/client/-/client-3.7.1.tgz"
-  integrity sha512-xu5M/l7p9gT9Fx7nF3AQivp0XukjB7TM7tOd5wifIpI8RskYveL4I+rpTijzWrnqCPZabkbzJKH7WEAKdctt9w==
+"@apollo/client@^3.7.9":
+  version "3.7.9"
+  resolved "https://registry.npmjs.org/@apollo/client/-/client-3.7.9.tgz"
+  integrity sha512-YnJvrJOVWrp4y/zdNvUaM8q4GuSHCEIecsRDTJhK/veT33P/B7lfqGJ24NeLdKMj8tDEuXYF7V0t+th4+rgC+Q==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
     "@wry/context" "^0.7.0"
@@ -709,56 +709,56 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@motionone/animation@^10.13.1":
-  version "10.14.0"
-  resolved "https://registry.npmjs.org/@motionone/animation/-/animation-10.14.0.tgz"
-  integrity sha512-h+1sdyBP8vbxEBW5gPFDnj+m2DCqdlAuf2g6Iafb1lcMnqjsRXWlPw1AXgvUMXmreyhqmPbJqoNfIKdytampRQ==
+"@motionone/animation@^10.15.1":
+  version "10.15.1"
+  resolved "https://registry.npmjs.org/@motionone/animation/-/animation-10.15.1.tgz"
+  integrity sha512-mZcJxLjHor+bhcPuIFErMDNyrdb2vJur8lSfMCsuCB4UyV8ILZLvK+t+pg56erv8ud9xQGK/1OGPt10agPrCyQ==
   dependencies:
-    "@motionone/easing" "^10.14.0"
-    "@motionone/types" "^10.14.0"
-    "@motionone/utils" "^10.14.0"
+    "@motionone/easing" "^10.15.1"
+    "@motionone/types" "^10.15.1"
+    "@motionone/utils" "^10.15.1"
     tslib "^2.3.1"
 
-"@motionone/dom@10.13.1":
-  version "10.13.1"
-  resolved "https://registry.npmjs.org/@motionone/dom/-/dom-10.13.1.tgz"
-  integrity sha512-zjfX+AGMIt/fIqd/SL1Lj93S6AiJsEA3oc5M9VkUr+Gz+juRmYN1vfvZd6MvEkSqEjwPQgcjN7rGZHrDB9APfQ==
+"@motionone/dom@^10.15.3":
+  version "10.15.5"
+  resolved "https://registry.npmjs.org/@motionone/dom/-/dom-10.15.5.tgz"
+  integrity sha512-Xc5avlgyh3xukU9tydh9+8mB8+2zAq+WlLsC3eEIp7Ax7DnXgY7Bj/iv0a4X2R9z9ZFZiaXK3BO0xMYHKbAAdA==
   dependencies:
-    "@motionone/animation" "^10.13.1"
-    "@motionone/generators" "^10.13.1"
-    "@motionone/types" "^10.13.0"
-    "@motionone/utils" "^10.13.1"
+    "@motionone/animation" "^10.15.1"
+    "@motionone/generators" "^10.15.1"
+    "@motionone/types" "^10.15.1"
+    "@motionone/utils" "^10.15.1"
     hey-listen "^1.0.8"
     tslib "^2.3.1"
 
-"@motionone/easing@^10.14.0":
-  version "10.14.0"
-  resolved "https://registry.npmjs.org/@motionone/easing/-/easing-10.14.0.tgz"
-  integrity sha512-2vUBdH9uWTlRbuErhcsMmt1jvMTTqvGmn9fHq8FleFDXBlHFs5jZzHJT9iw+4kR1h6a4SZQuCf72b9ji92qNYA==
+"@motionone/easing@^10.15.1":
+  version "10.15.1"
+  resolved "https://registry.npmjs.org/@motionone/easing/-/easing-10.15.1.tgz"
+  integrity sha512-6hIHBSV+ZVehf9dcKZLT7p5PEKHGhDwky2k8RKkmOvUoYP3S+dXsKupyZpqx5apjd9f+php4vXk4LuS+ADsrWw==
   dependencies:
-    "@motionone/utils" "^10.14.0"
+    "@motionone/utils" "^10.15.1"
     tslib "^2.3.1"
 
-"@motionone/generators@^10.13.1":
-  version "10.14.0"
-  resolved "https://registry.npmjs.org/@motionone/generators/-/generators-10.14.0.tgz"
-  integrity sha512-6kRHezoFfIjFN7pPpaxmkdZXD36tQNcyJe3nwVqwJ+ZfC0e3rFmszR8kp9DEVFs9QL/akWjuGPSLBI1tvz+Vjg==
+"@motionone/generators@^10.15.1":
+  version "10.15.1"
+  resolved "https://registry.npmjs.org/@motionone/generators/-/generators-10.15.1.tgz"
+  integrity sha512-67HLsvHJbw6cIbLA/o+gsm7h+6D4Sn7AUrB/GPxvujse1cGZ38F5H7DzoH7PhX+sjvtDnt2IhFYF2Zp1QTMKWQ==
   dependencies:
-    "@motionone/types" "^10.14.0"
-    "@motionone/utils" "^10.14.0"
+    "@motionone/types" "^10.15.1"
+    "@motionone/utils" "^10.15.1"
     tslib "^2.3.1"
 
-"@motionone/types@^10.13.0", "@motionone/types@^10.14.0":
-  version "10.14.0"
-  resolved "https://registry.npmjs.org/@motionone/types/-/types-10.14.0.tgz"
-  integrity sha512-3bNWyYBHtVd27KncnJLhksMFQ5o2MSdk1cA/IZqsHtA9DnRM1SYgN01CTcJ8Iw8pCXF5Ocp34tyAjY7WRpOJJQ==
+"@motionone/types@^10.15.1":
+  version "10.15.1"
+  resolved "https://registry.npmjs.org/@motionone/types/-/types-10.15.1.tgz"
+  integrity sha512-iIUd/EgUsRZGrvW0jqdst8st7zKTzS9EsKkP+6c6n4MPZoQHwiHuVtTQLD6Kp0bsBLhNzKIBlHXponn/SDT4hA==
 
-"@motionone/utils@^10.13.1", "@motionone/utils@^10.14.0":
-  version "10.14.0"
-  resolved "https://registry.npmjs.org/@motionone/utils/-/utils-10.14.0.tgz"
-  integrity sha512-sLWBLPzRqkxmOTRzSaD3LFQXCPHvDzyHJ1a3VP9PRzBxyVd2pv51/gMOsdAcxQ9n+MIeGJnxzXBYplUHKj4jkw==
+"@motionone/utils@^10.15.1":
+  version "10.15.1"
+  resolved "https://registry.npmjs.org/@motionone/utils/-/utils-10.15.1.tgz"
+  integrity sha512-p0YncgU+iklvYr/Dq4NobTRdAPv9PveRDUXabPEeOjBLSO/1FNB2phNTZxOxpi1/GZwYpAoECEa0Wam+nsmhSw==
   dependencies:
-    "@motionone/types" "^10.14.0"
+    "@motionone/types" "^10.15.1"
     hey-listen "^1.0.8"
     tslib "^2.3.1"
 
@@ -922,27 +922,27 @@
   resolved "https://registry.npmjs.org/@sapphire/snowflake/-/snowflake-3.2.2.tgz"
   integrity sha512-ula2O0kpSZtX9rKXNeQMrHwNd7E4jPDJYUXmEGTFdMRfyfMw+FPyh04oKMjAiDuOi64bYgVkOV3MjK+loImFhQ==
 
-"@skyra/discord-components-core@^3.4.1":
-  version "3.4.1"
-  resolved "https://registry.npmjs.org/@skyra/discord-components-core/-/discord-components-core-3.4.1.tgz"
-  integrity sha512-+BKH9FyJ7IHPA4mP2TQQhT4I9BA8Iz3YNs3G7adZcgPn/Jcfn14/OJiE+Uj9Rw3Q9DeeCHQcSM4dRj8KJA8wFw==
+"@skyra/discord-components-core@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.npmjs.org/@skyra/discord-components-core/-/discord-components-core-3.6.0.tgz"
+  integrity sha512-13aVNoleHyAMqd4lcfcfjEduV4QavlHn9P2TUlTUPQC8m8cd8n8wSUTDUxKhQbYpzJ0hn7AHnlmLixfiqQT4FQ==
   dependencies:
-    "@stencil/core" "^2.17.3"
+    "@stencil/core" "^2.22.1"
     clsx "^1.2.1"
     hex-to-rgba "^2.0.1"
 
-"@skyra/discord-components-react@^3.4.1":
-  version "3.4.1"
-  resolved "https://registry.npmjs.org/@skyra/discord-components-react/-/discord-components-react-3.4.1.tgz"
-  integrity sha512-ttc9Qw0y7lXOFpRs3mWvC0Uj3aNw1uCYefWTYg3ohlq6UEg96dB32IFzoC3KH4RSKNW3DYkIm+TlcVCdSGtT5g==
+"@skyra/discord-components-react@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.npmjs.org/@skyra/discord-components-react/-/discord-components-react-3.6.0.tgz"
+  integrity sha512-M3N22C5wktZwOAfkTaEKPQSxsjeeB9+Prtrg9zyW2/+UYDscsAM1sVxC9mzC/D0O5Ayx0c3OAqu+HF5xc6y0/g==
   dependencies:
-    "@skyra/discord-components-core" "^3.4.1"
-    tslib "^2.4.0"
+    "@skyra/discord-components-core" "^3.6.0"
+    tslib "^2.4.1"
 
-"@stencil/core@^2.17.3":
-  version "2.19.3"
-  resolved "https://registry.npmjs.org/@stencil/core/-/core-2.19.3.tgz"
-  integrity sha512-rb6pBWTfD5xDg5M/uEJUeclatE/tqBE3zCCNrEB47AtdkNCzC9fOikdzCYbpdAEpU6GvC60REFr0bd8QFUjn3Q==
+"@stencil/core@^2.22.1":
+  version "2.22.2"
+  resolved "https://registry.npmjs.org/@stencil/core/-/core-2.22.2.tgz"
+  integrity sha512-r+vbxsGNcBaV1VDOYW25lv4QfXTlNoIb5GpUX7rZ+cr59yqYCZC5tlV+IzX6YgHKW62ulCc9M3RYtTfHtNbNNw==
 
 "@swc/helpers@0.4.14":
   version "0.4.14"
@@ -1001,11 +1001,6 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-10.17.60.tgz"
   integrity sha512-F0KIgDJfy2nA3zMLmWGKxcH2ZVEtCZXHHdOQs2gSaQ27+lNeEfGxzkIw90aXswATX7AZ33tahPbzy6KAfUreVw==
 
-"@types/node@^18.11.9":
-  version "18.11.9"
-  resolved "https://registry.npmjs.org/@types/node/-/node-18.11.9.tgz"
-  integrity sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==
-
 "@types/node@^18.14.0":
   version "18.14.0"
   resolved "https://registry.npmjs.org/@types/node/-/node-18.14.0.tgz"
@@ -1028,10 +1023,10 @@
   dependencies:
     "@types/react" "^17"
 
-"@types/react-dom@^18.0.8":
-  version "18.0.8"
-  resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.0.8.tgz"
-  integrity sha512-C3GYO0HLaOkk9dDAz3Dl4sbe4AKUGTCfFIZsz3n/82dPNN8Du533HzKatDxeUYWu24wJgMP1xICqkWk1YOLOIw==
+"@types/react-dom@^18.0.11":
+  version "18.0.11"
+  resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.0.11.tgz"
+  integrity sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==
   dependencies:
     "@types/react" "*"
 
@@ -1042,10 +1037,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.9.0 || ^17.0.0 || ^18.0.0", "@types/react@18.0.24":
-  version "18.0.24"
-  resolved "https://registry.npmjs.org/@types/react/-/react-18.0.24.tgz"
-  integrity sha512-wRJWT6ouziGUy+9uX0aW4YOJxAY0bG6/AOk5AW5QSvZqI7dk6VBIbXvcVgIw/W5Jrl24f77df98GEKTJGOLx7Q==
+"@types/react@*", "@types/react@^16.9.0 || ^17.0.0 || ^18.0.0", "@types/react@18.0.28":
+  version "18.0.28"
+  resolved "https://registry.npmjs.org/@types/react/-/react-18.0.28.tgz"
+  integrity sha512-RD0ivG1kEztNBdoAK7lekI9M+azSnitIn85h4iOiaLjaTrMjzslhaqCGaI4IyCJ1RljWiLCEu4jyrLLgqxBTew==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -1306,21 +1301,21 @@ ajv@^8.0.1:
   version "1.1.0"
   resolved "file:apps/bot"
   dependencies:
-    "@discordjs/rest" "^1.3.0"
-    "@types/node" "^18.8.4"
+    "@discordjs/rest" "^1.5.0"
+    "@types/node" "^18.14.0"
     database "*"
-    discord-api-types "^0.36.3"
-    discord.js "^14.6.0"
-    dotenv "^10.0.0"
-    eslint "^8.25.0"
+    discord-api-types "^0.37.35"
+    discord.js "^14.7.1"
+    dotenv "^16.0.3"
+    eslint "^8.34.0"
     eslint-config-airbnb-base "^15.0.0"
     eslint-config-airbnb-typescript "^17.0.0"
-    eslint-plugin-import "^2.26.0"
-    eslint-plugin-jsdoc "^39.3.3"
-    node-fetch "^3.2.10"
+    eslint-plugin-import "^2.27.5"
+    eslint-plugin-jsdoc "^40.0.0"
+    node-fetch "^3.3.0"
     nodemon "^2.0.20"
     ts-node "^10.9.1"
-    typescript "^4.8.4"
+    typescript "^4.9.5"
 
 ansi-colors@^4.1.1:
   version "4.1.3"
@@ -1913,7 +1908,7 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-discord-api-types@^0.37.20, discord-api-types@^0.37.22, discord-api-types@^0.37.23, discord-api-types@^0.37.35:
+discord-api-types@^0.37.20, discord-api-types@^0.37.23, discord-api-types@^0.37.35:
   version "0.37.35"
   resolved "https://registry.npmjs.org/discord-api-types/-/discord-api-types-0.37.35.tgz"
   integrity sha512-iyKZ/82k7FX3lcmHiAvvWu5TmyfVo78RtghBV/YsehK6CID83k5SI03DKKopBcln+TiEIYw5MGgq7SJXSpNzMg==
@@ -2596,26 +2591,16 @@ fraction.js@^4.2.0:
   resolved "https://registry.npmjs.org/fraction.js/-/fraction.js-4.2.0.tgz"
   integrity sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==
 
-framer-motion@^7.6.4:
-  version "7.6.4"
-  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-7.6.4.tgz"
-  integrity sha512-Ac3Bl9M45fS8A0ibOUnYMSCfjaCrFfWT0uh0/MZVm/DGWcr5IsRRinWRiVGABA9RGJgn4THehqcn235JVQkucQ==
+framer-motion@^9.0.4:
+  version "9.0.4"
+  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-9.0.4.tgz"
+  integrity sha512-lZ1+2/WBn8iYRYmeEFpu/X2fI1GNwJL+X21EpnWwKP3vkJsnWBXZF5kHF29wIPk9sBU2xDIpDm9SAVo206bp9A==
   dependencies:
-    "@motionone/dom" "10.13.1"
-    framesync "6.1.2"
+    "@motionone/dom" "^10.15.3"
     hey-listen "^1.0.8"
-    popmotion "11.0.5"
-    style-value-types "5.1.2"
-    tslib "2.4.0"
+    tslib "^2.4.0"
   optionalDependencies:
     "@emotion/is-prop-valid" "^0.8.2"
-
-framesync@6.1.2:
-  version "6.1.2"
-  resolved "https://registry.npmjs.org/framesync/-/framesync-6.1.2.tgz"
-  integrity sha512-jBTqhX6KaQVDyus8muwZbBeGGP0XgujBRbQ7gM7BRdS3CadCZIHiawyzYLnafYcvZIh5j8WE7cxZKFn7dXhu9g==
-  dependencies:
-    tslib "2.4.0"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -3324,10 +3309,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-next-auth@^4.19.1:
-  version "4.19.1"
-  resolved "https://registry.npmjs.org/next-auth/-/next-auth-4.19.1.tgz"
-  integrity sha512-Wo0b1tWtEh1ORR+AzTtBHSPxAA2zKqynoMS/nQQVrT5RD/umVzpXz25fOkoRrO9t+Is+scU2DmKeyFIkhx45WQ==
+next-auth@^4.19.2:
+  version "4.19.2"
+  resolved "https://registry.npmjs.org/next-auth/-/next-auth-4.19.2.tgz"
+  integrity sha512-6V2YG3IJQVhgCAH7mvT3yopTW92gMdUrcwGX7NQ0dCreT/+axGua/JmVdarjec0C/oJukKpIYRgjMlV+L5ZQOQ==
   dependencies:
     "@babel/runtime" "^7.16.3"
     "@panva/hkdf" "^1.0.1"
@@ -3630,16 +3615,6 @@ pify@^2.3.0:
   resolved "https://registry.npmjs.org/pify/-/pify-2.3.0.tgz"
   integrity sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==
 
-popmotion@11.0.5:
-  version "11.0.5"
-  resolved "https://registry.npmjs.org/popmotion/-/popmotion-11.0.5.tgz"
-  integrity sha512-la8gPM1WYeFznb/JqF4GiTkRRPZsfaj2+kCxqQgr2MJylMmIKUwBfWW8Wa5fml/8gmtlD5yI01MP1QCZPWmppA==
-  dependencies:
-    framesync "6.1.2"
-    hey-listen "^1.0.8"
-    style-value-types "5.1.2"
-    tslib "2.4.0"
-
 postcss-import@^14.1.0:
   version "14.1.0"
   resolved "https://registry.npmjs.org/postcss-import/-/postcss-import-14.1.0.tgz"
@@ -3671,10 +3646,10 @@ postcss-nested@6.0.0:
   dependencies:
     postcss-selector-parser "^6.0.10"
 
-postcss-selector-parser@^6.0.10:
-  version "6.0.10"
-  resolved "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz"
-  integrity sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==
+postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.11:
+  version "6.0.11"
+  resolved "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.11.tgz"
+  integrity sha512-zbARubNdogI9j7WY4nQJBiNqQf3sLS3wCP4WfOidu+p28LofJqDH1tcXypGrcmMHhDk2t9wGhCsYe/+szLTy1g==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
@@ -3693,7 +3668,7 @@ postcss@^8.0.0, postcss@^8.1.0, postcss@^8.2.14, postcss@^8.3.3, postcss@>=8.0.9
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-postcss@^8.4.17:
+postcss@^8.0.9:
   version "8.4.18"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.18.tgz"
   integrity sha512-Wi8mWhncLJm11GATDaQKobXSNEYGUHeQLiQqDFG1qQ5UTDPTEvKw0Xt5NsTpktGTwLps3ByrWsBrG0rB8YQ9oA==
@@ -3702,10 +3677,10 @@ postcss@^8.4.17:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-postcss@^8.4.18:
-  version "8.4.18"
-  resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.18.tgz"
-  integrity sha512-Wi8mWhncLJm11GATDaQKobXSNEYGUHeQLiQqDFG1qQ5UTDPTEvKw0Xt5NsTpktGTwLps3ByrWsBrG0rB8YQ9oA==
+postcss@^8.4.21:
+  version "8.4.21"
+  resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.21.tgz"
+  integrity sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==
   dependencies:
     nanoid "^3.3.4"
     picocolors "^1.0.0"
@@ -4192,14 +4167,6 @@ strtok3@^7.0.0:
     "@tokenizer/token" "^0.3.0"
     peek-readable "^5.0.0"
 
-style-value-types@5.1.2:
-  version "5.1.2"
-  resolved "https://registry.npmjs.org/style-value-types/-/style-value-types-5.1.2.tgz"
-  integrity sha512-Vs9fNreYF9j6W2VvuDTP7kepALi7sk0xtk2Tu8Yxi9UoajJdEVpNpCov0HsLTqXvNGKX+Uv09pkozVITi1jf3Q==
-  dependencies:
-    hey-listen "^1.0.8"
-    tslib "2.4.0"
-
 styled-jsx@5.1.1:
   version "5.1.1"
   resolved "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.1.1.tgz"
@@ -4260,10 +4227,10 @@ table@^6.0.9:
     string-width "^4.2.3"
     strip-ansi "^6.0.1"
 
-tailwindcss@^3, tailwindcss@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.2.1.tgz"
-  integrity sha512-Uw+GVSxp5CM48krnjHObqoOwlCt5Qo6nw1jlCRwfGy68dSYb/LwS9ZFidYGRiM+w6rMawkZiu1mEMAsHYAfoLg==
+tailwindcss@^3, tailwindcss@^3.2.7:
+  version "3.2.7"
+  resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.2.7.tgz"
+  integrity sha512-B6DLqJzc21x7wntlH/GsZwEXTBttVSl1FtCzC8WP4oBc/NKef7kaax5jeihkkCEWc831/5NDJ9gRNDK6NEioQQ==
   dependencies:
     arg "^5.0.2"
     chokidar "^3.5.3"
@@ -4279,12 +4246,12 @@ tailwindcss@^3, tailwindcss@^3.2.1:
     normalize-path "^3.0.0"
     object-hash "^3.0.0"
     picocolors "^1.0.0"
-    postcss "^8.4.17"
+    postcss "^8.0.9"
     postcss-import "^14.1.0"
     postcss-js "^4.0.0"
     postcss-load-config "^3.1.4"
     postcss-nested "6.0.0"
-    postcss-selector-parser "^6.0.10"
+    postcss-selector-parser "^6.0.11"
     postcss-value-parser "^4.2.0"
     quick-lru "^5.1.1"
     resolve "^1.22.1"
@@ -4399,11 +4366,6 @@ tslib@^2.0.0, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.3.1, tslib@^2.4.0, tslib@^2.4
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.5.0.tgz"
   integrity sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==
 
-tslib@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
-  integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
-
 tsutils@^3.21.0:
   version "3.21.0"
   resolved "https://registry.npmjs.org/tsutils/-/tsutils-3.21.0.tgz"
@@ -4448,7 +4410,7 @@ type-is@^1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
-typescript@^4.5.2, typescript@^4.7.4, typescript@^4.8.4, typescript@^4.9.5, typescript@>=2.7, "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", typescript@>=3.3.1:
+typescript@^4.5.2, typescript@^4.7.4, typescript@^4.9.5, typescript@>=2.7, "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", typescript@>=3.3.1:
   version "4.9.5"
   resolved "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
