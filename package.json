@@ -22,7 +22,7 @@
   },
   "packageManager": "npm@8.19.2",
   "dependencies": {
-    "dotenv-cli": "^6.0.0",
-    "prisma": "^4.5.0"
+    "dotenv-cli": "^7.0.0",
+    "prisma": "^4.10.1"
   }
 }
