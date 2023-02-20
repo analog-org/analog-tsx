@@ -17,17 +17,22 @@ import dotenv, { config } from "dotenv";
 import { regCMD } from "./src/deploy-commands";
 import { devConfig } from "./devconfig";
 import path from "node:path";
+import cron from "node-cron";
+
+export type TaskFunction = () => void;
 
 dotenv.config();
 export const client: any = new Client({
   intents: [
     GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.GuildMessageReactions,
     GatewayIntentBits.GuildMessageTyping,
     GatewayIntentBits.DirectMessages,
     GatewayIntentBits.DirectMessageReactions,
     GatewayIntentBits.DirectMessageTyping,
+    GatewayIntentBits.GuildEmojisAndStickers,
   ],
   partials: [
     Partials.Channel, // Required to receive DMs
@@ -53,6 +58,24 @@ for (const file of eventFiles) {
   }
 }
 
+// Get the list of task files in the tasks folder
+const tasksFolder = path.join(__dirname, "src/tasks");
+const taskFiles = fs
+  .readdirSync(tasksFolder)
+  .filter((file) => file.endsWith(".js"));
+
+taskFiles.forEach((file: string) => {
+  // Dynamically import the task module
+  const taskModule: { default: TaskFunction } = require(path.join(
+    tasksFolder,
+    file
+  ));
+
+  // Find the exported function and call it to schedule the task
+  const taskFunction = taskModule.default;
+  if(!taskFunction) return
+  taskFunction();
+});
 
 client.commands = new Collection();
 // This gets the command modules from the command folders
@@ -62,6 +85,7 @@ const commandFiles = fs
   .filter((file) => file.endsWith(".js"));
 
 for (const file of commandFiles) {
+  
   const filePath = path.join(cmdPath, file);
   const command = require(filePath);
 
@@ -73,15 +97,24 @@ client.on("interactionCreate", async (interaction: CommandInteraction) => {
   const command = client.commands.get(interaction.commandName);
 
   if (!command) return;
-
-  try {
-    await command.execute(interaction);
-  } catch (error) {
-    await interaction.reply({
-      content: "There was an error while executing this command!",
-      ephemeral: true,
-    });
-    console.error(error)
+  if (interaction.isChatInputCommand()) {
+    try {
+      await command.execute(interaction);
+    } catch (error) {
+      console.error(error);
+    }
+  } else if (interaction.isContextMenuCommand()) {
+    try {
+      await command.execute(interaction);
+    } catch (error) {
+      console.error(error);
+    }
+  } else if (interaction.isAutocomplete()) {
+    try {
+      await command.autocomplete(interaction);
+    } catch (error) {
+      console.error(error);
+    }
   }
 });
 
@@ -92,19 +125,18 @@ client.selectMenus = new Collection();
 const compPath = path.join(__dirname, "src/components");
 const componentFolders = readdirSync(compPath);
 
-
 for (const folder of componentFolders) {
   const comps = path.join(compPath, folder);
   const componentFiles = readdirSync(comps).filter((file) =>
     file.endsWith(".js")
   );
-  
+
   switch (folder) {
     case "buttons":
       for (const file of componentFiles) {
         const filePath = path.join(compPath, folder, file);
         const button = require(filePath);
-        
+
         client.buttons.set(button.data.name, button);
       }
       break;
@@ -136,9 +168,9 @@ client.on(
       | SelectMenuInteraction
   ) => {
     if (interaction.isButton()) {
-      const button = client.buttons.get(interaction.customId);
-      
 
+      const button = client.buttons.get(interaction.customId);
+      if(!button) return;
       try {
         await button.execute(interaction);
       } catch (error) {
@@ -148,9 +180,9 @@ client.on(
           ephemeral: true,
         });
       }
-    } else if (interaction.isSelectMenu()) {
+    } else if (interaction.isAnySelectMenu()) {
       const selectMenu = client.selectMenus.get(interaction.customId);
-
+      if(!selectMenu) return;
       try {
         await selectMenu.execute(interaction);
       } catch (error) {
@@ -159,12 +191,10 @@ client.on(
           content: "There was an error while selecting this option!",
           ephemeral: true,
         });
-        
       }
-    } else if (interaction.type === InteractionType.ModalSubmit) {
-      
+    } else if (interaction.isModalSubmit()) {
       const modal = client.modals.get(interaction.customId);
-
+      if(!modal) return;
       try {
         await modal.execute(interaction);
       } catch (error) {
