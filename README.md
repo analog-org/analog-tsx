@@ -6,7 +6,7 @@
 
 <div align="center">
   
-  This is a typescript template for building Discord bots with a dashboard in NextJS, TailwindCSS, Discord.JS, Next-Auth, and Prisma.
+  This is a typescript template for building Discord bots with a dashboard. It uses NextJS, TailwindCSS, Discord.JS, Sapphire, Next-Auth, and Prisma.
   
   <br />
 </div>
