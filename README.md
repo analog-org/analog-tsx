@@ -1,10 +1,13 @@
 <p align="center">
   <a href="#">
-    <h1 align="center">Analog</h1>
+    <h1 align="center">Analog-TSX</h1>
   </a>
 </p>
 
+# This will never be maintained and will remain as an archive of the old analog-tsx that used analog-ts for the Discord bot portion 
+
 <div align="center">
+  
   
   This is a typescript template for building Discord bots with a dashboard in NextJS, TailwindCSS, Discord.JS, Next-Auth, and Prisma.
   
