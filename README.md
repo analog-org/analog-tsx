@@ -1,6 +1,6 @@
 <p align="center">
   <a href="#">
-    <h1 align="center">Analog-tsx</h1>
+    <h1 align="center">Analog-TSX</h1>
   </a>
 </p>
 
