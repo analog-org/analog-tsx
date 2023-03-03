@@ -1,6 +1,6 @@
 <p align="center">
   <a href="#">
-    <h1 align="center">Analog</h1>
+    <h1 align="center">Analog-tsx</h1>
   </a>
 </p>
 
@@ -33,7 +33,7 @@
 </div>
 
 # Discord Bot 
-- (Is going to use) [The Sapphire Framework](https://www.sapphirejs.dev/)
+-  Uses [the Sapphire Framework](https://www.sapphirejs.dev/)
 
 # Dashboard features
 - NextJS
