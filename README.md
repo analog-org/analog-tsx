@@ -6,7 +6,7 @@
 
 <div align="center">
   
-  This is a typescript template for building Discord bots with a dashboard in NextJS, TailwindCSS, Discord.JS, Next-Auth, and Prisma.
+  This is a typescript template for building Discord bots with a dashboard. It uses NextJS, TailwindCSS, Discord.JS, Sapphire, Next-Auth, and Prisma.
   
   <br />
 </div>
@@ -32,18 +32,8 @@
   <img alt="Discord" src="https://img.shields.io/discord/762378948084498482?label=Discord&logo=discord&style=for-the-badge">
 </div>
 
-# Discord Bot Features
-- Discord.JS v14
-- Typescript
-- Uses functions and ESM modules instead of classes
-- [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=BossDaily.analog-ts-snippets&ssr=false)
-- Command Handler
-- Context Menu Handler
-- Event Handler
-- Button handler
-- Modal handler
-- Select Menu Handler
-
+# Discord Bot 
+- (Is going to use) [The Sapphire Framework](https://www.sapphirejs.dev/)
 
 # Dashboard features
 - NextJS

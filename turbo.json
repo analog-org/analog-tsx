@@ -14,7 +14,7 @@
     "dashboard#build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"],
-      "env": ["DISCORD_CLIENT_ID", "DISCORD_CLIENT_SECRET", "NEXT_PUBLIC_DISCORD_CLIENT_ID", "DISCORD_BOT_TOKEN", "NEXTAUTH_SECRET", "NEXTAUTH_URL"]
+      "env": ["DISCORD_CLIENT_ID", "DISCORD_CLIENT_SECRET", "NEXT_PUBLIC_DISCORD_CLIENT_ID", "DISCORD_TOKEN", "NEXTAUTH_SECRET", "NEXTAUTH_URL"]
     },
     "lint": {
       "outputs": []

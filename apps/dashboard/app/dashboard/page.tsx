@@ -36,7 +36,7 @@ export default async function Home() {
     {
       headers: {
         // @ts-ignore
-        Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
+        Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
       },
     }
   );
