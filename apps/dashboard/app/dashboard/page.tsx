@@ -16,9 +16,7 @@ import GuildCard from "./(Guild)/GuildCard";
 import NavBar from "../Navbar";
 
 export default async function Home() {
-
   const session = await getServerSession(authOptions);
-
 
   const guildFetch = await fetch(
     `https://discord.com/api/v10/users/@me/guilds`,
@@ -30,7 +28,7 @@ export default async function Home() {
     }
   );
   const guilds = await guildFetch.json();
-  
+
   const botGuildsFetch = await fetch(
     `https://discord.com/api/v10/users/@me/guilds`,
     {
@@ -45,8 +43,8 @@ export default async function Home() {
   if (session) {
     return (
       <div>
+        <NavBar />
         <GuildContainer>
-          <NavBar />
           {guilds.map((gld: guild) => {
             const serverPerms = perms(gld.permissions);
             if (serverPerms.includes("MANAGE_GUILD")) {
